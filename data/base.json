@@ -1,5 +1,13 @@
 [
   {
+    "id": "infuse-save",
+    "name": "Infuse Save",
+    "description": "Плагін додає дії `Save to Infuse` та `Save all to Infuse` у список торрент-файлів. Працює з довгим натисканням у вікні файлів, приводить посилання до сумісного формату (`play` замість `preload`) і передає їх в Infuse через deeplink. На Apple TV також доступний пункт відкриття advanced menu.",
+    "url": "https://lampame.github.io/main/infuseSave.js",
+    "author": "@lampame",
+    "category": "media"
+  },
+  {
     "id": "netflix",
     "name": "Netflix",
     "description": "Перетворює головну сторінку на інтерфейс, дуже схожий на Netflix.",
