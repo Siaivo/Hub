@@ -214,16 +214,31 @@ async function addToBaseAndPR(issueNumber, entry) {
 
   // Автоматичний merge
   console.log(`🔀 Мерж PR #${pr.number}...`);
-  const mergeRes = await ghFetch(`/repos/${owner}/${repo}/pulls/${pr.number}/merge`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      merge_method: 'squash',
-      commit_title: `feat: add ${entry.id} (#${issueNumber})`,
-      commit_message: `Додано плагін ${entry.name} з issue #${issueNumber}`,
-    }),
-  });
-  const mergeData = await mergeRes.json();
+  let mergeData;
+  try {
+    const mergeRes = await ghFetch(`/repos/${owner}/${repo}/pulls/${pr.number}/merge`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        merge_method: 'squash',
+        commit_title: `feat: add ${entry.id} (#${issueNumber})`,
+        commit_message: `Додано плагін ${entry.name} з issue #${issueNumber}`,
+      }),
+    });
+    mergeData = await mergeRes.json();
+  } catch (e) {
+    // ghFetch кидає помилку при non-2xx — ловимо і повертаємо PR без мержу
+    const msg = e.message || String(e);
+    console.error(`❌ Merge failed: ${msg}`);
+    return { ...pr, mergeFailed: true, mergeError: msg };
+  }
+
+  if (!mergeData.merged) {
+    const msg = `Merge API повернув merged=false: ${JSON.stringify(mergeData).slice(0, 500)}`;
+    console.error(`❌ ${msg}`);
+    return { ...pr, mergeFailed: true, mergeError: msg };
+  }
+
   console.log(`✅ PR #${pr.number} замержено: ${mergeData.merged}`);
 
   // Видалити гілку після мержу
@@ -304,6 +319,14 @@ async function main() {
       await postComment(issueNumber, `⚠️ Запис \`${entry.id}\` вже є в реєстрі. Нічого не змінено.`);
       await setLabels(issueNumber, ['merged']);
       await closeIssue(issueNumber);
+    } else if (pr.mergeFailed) {
+      console.error(`❌ Merge не відбувся: ${pr.mergeError}`);
+      await postComment(
+        issueNumber,
+        `⚠️ PR створено, але **не вдалося замержити**:\n\n\`\`\`\n${pr.mergeError}\n\`\`\`\n\n` +
+          `PR: ${pr.html_url}\n\nПотрібен ручний мерж або перевірка прав BOT_TOKEN.`,
+      );
+      // НЕ закриваємо issue, НЕ ставимо merged — щоб можна було повторити
     } else {
       console.log(`✅ PR створено та замержено: ${pr.html_url} (#${pr.number})`);
       await postComment(issueNumber, `✅ Плагін \`${entry.id}\` додано в реєстр!\n\nPR: ${pr.html_url} (#${pr.number})\n\nСайт оновиться найближчим часом.`);
