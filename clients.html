@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Клієнти PluginHub — куди вставляти посилання на плагіни під кожну платформу">
+<meta name="color-scheme" content="light dark">
+<title>Клієнти — PluginHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="./assets/style.css">
+<style>
+.clients-nav{padding:14px 0 8px;display:flex;flex-wrap:wrap;gap:8px}
+.clients-nav a.chip{text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.clients-nav a.chip svg{width:14px;height:14px;flex-shrink:0;opacity:.8}
+.clients-intro{color:var(--muted);font-size:14px;margin:14px 0 10px;line-height:1.65;max-width:680px}
+#clients-grid{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:860px){#clients-grid{grid-template-columns:repeat(2,1fr);gap:18px}}
+.client-card{scroll-margin-top:76px}
+.client-card.is-highlight{border-color:var(--accent);box-shadow:0 0 0 3px rgba(193,82,40,.18), var(--shadow-hover)}
+.client-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.client-icon{width:40px;height:40px;display:grid;place-items:center;flex-shrink:0;border-radius:10px;background:var(--accent-soft);border:1px solid var(--border);color:var(--accent);line-height:1}
+.client-icon svg{width:20px;height:20px}
+.client-head h3{font-family:var(--font-display);font-size:16px;font-weight:700;letter-spacing:-.02em;flex:1 1 auto;color:var(--text)}
+.badge{font-family:var(--font-mono);font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:1px solid var(--border);white-space:nowrap}
+.badge-recommended{background:var(--success-soft);color:var(--success);border-color:color-mix(in srgb,var(--success) 28%, var(--border))}
+.badge-sideload{background:#FEF3C7;color:#92400E;border-color:#FCD34D}
+@media(prefers-color-scheme:dark){.badge-sideload{background:#3A2A0A;color:#FCD34D;border-color:#7A5A10}}
+.client-audience{font-size:13px;color:var(--muted);margin-top:2px}
+.client-audience span{color:var(--text);font-weight:600}
+.client-steps{margin:8px 0 0 18px;font-size:14px;line-height:1.65}
+.client-steps li{margin:2px 0}
+.os-req{font-size:12px;color:var(--muted);margin-top:6px}
+.client-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.client-details{margin-top:10px}
+.client-details summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--accent);list-style:none;font-family:var(--font-body)}
+.client-details summary::-webkit-details-marker{display:none}
+.client-details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+.client-details[open] summary::before{transform:rotate(90deg)}
+.client-details .details-body{margin-top:8px;font-size:13.5px;line-height:1.6;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-title">
+      <h1><a href="./index.html" style="color:inherit;text-decoration:none">Каталог плагінів</a> <span style="font-weight:400;color:var(--muted);font-family:var(--font-body);font-size:.72em;letter-spacing:-.01em">/ Клієнти</span></h1>
+      <span class="counter">5 платформ</span>
+    </div>
+    <nav class="header-nav" aria-label="Навігація">
+      <a class="btn btn-ghost" href="./index.html">Каталог</a>
+      <a class="btn btn-ghost" href="./clients.html" aria-current="page">Клієнти</a>
+      <a class="btn btn-ghost" href="./portals.html">Портали</a>
+      <a class="btn btn-ghost header-cta" href="https://github.com/Siaivo/PluginHub/issues/new?template=plugin.yml" target="_blank" rel="noopener">Запропонувати плагін</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <nav class="chips clients-nav" aria-label="Швидка навігація по платформах">
+    <a class="chip" href="#web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg> Браузер</a>
+    <a class="chip" href="#android"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="7" width="14" height="11" rx="2"/><path d="M9 7V5"/><path d="M15 7V5"/><circle cx="9.5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="12" r="1" fill="currentColor" stroke="none"/></svg> Android</a>
+    <a class="chip" href="#windows"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 3v18"/></svg> Windows</a>
+    <a class="chip" href="#tizen-webos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M9 21h6"/><path d="M12 18v3"/></svg> Tizen / webOS</a>
+    <a class="chip" href="#lampac"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><circle cx="8" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="8" cy="17" r="1" fill="currentColor" stroke="none"/></svg> Lampac</a>
+  </nav>
+
+  <div id="clients-grid" class="grid" aria-live="polite" aria-busy="true"></div>
+
+  <div id="clients-error" class="state state-error" hidden>
+    <p class="state-title">Не вдалося завантажити clients.json</p>
+    <p class="state-desc">Перевірте зʼєднання або оновіть сторінку. Файл: <code>data/clients.json</code></p>
+    <button type="button" id="retry-clients" class="btn btn-primary">Спробувати ще</button>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>Джерело даних: <a href="./data/clients.json" target="_blank" rel="noopener">data/clients.json</a></span>
+    <span class="dot" aria-hidden="true">·</span> <a href="./index.html">Каталог</a>
+    <span class="dot" aria-hidden="true">·</span> <a href="./portals.html">Портали</a>
+    <span class="dot" aria-hidden="true">·</span> <a href="https://github.com/Siaivo/Hub" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script type="module" src="./assets/clients.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Портали PluginHub — чистий портал, дзеркала та портали спільноти">
+<meta name="color-scheme" content="light dark">
+<title>Портали — PluginHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="./assets/style.css">
+<style>
+#portals-grid{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:860px){#portals-grid{grid-template-columns:repeat(2,1fr);gap:18px}}
+.portal-card{scroll-margin-top:76px}
+.portal-card.is-highlight{border-color:var(--accent);box-shadow:0 0 0 3px rgba(193,82,40,.18), var(--shadow-hover)}
+.portal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.portal-head h3{font-family:var(--font-display);font-size:16px;font-weight:700;letter-spacing:-.02em;color:var(--text)}
+.badge{font-family:var(--font-mono);font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:1px solid var(--border);white-space:nowrap}
+.badge-community{background:#EDE9FE;color:#5B21B6;border-color:#C4B5FD}
+@media(prefers-color-scheme:dark){.badge-community{background:#2A1A50;color:#C4B5FD;border-color:#5B21B6}}
+.portal-url-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:2px}
+.portal-url{font-family:var(--font-mono);font-size:13px;word-break:break-all}
+.btn-copy{white-space:nowrap}
+.btn-copy.is-copied{background:var(--success);color:#fff;border-color:var(--success)}
+.portal-mirrors-label{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.mirrors-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.mirror-chip{font-family:var(--font-mono);font-size:12px;padding:4px 9px;border-radius:999px;background:var(--bg);border:1px solid var(--border);word-break:break-all}
+.mirror-details{margin-top:6px}
+.mirror-details summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--accent);list-style:none}
+.mirror-details summary::-webkit-details-marker{display:none}
+.mirror-details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+.mirror-details[open] summary::before{transform:rotate(90deg)}
+.mirror-details .mirrors-row{margin-top:8px}
+.portal-desc{font-size:14px;line-height:1.65;margin-top:8px;color:var(--muted)}
+.portal-note{font-size:12px;color:var(--muted);margin-top:4px}
+.portal-foot{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:13px}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-title">
+      <h1><a href="./index.html" style="color:inherit;text-decoration:none">Каталог плагінів</a> <span style="font-weight:400;color:var(--muted);font-family:var(--font-body);font-size:.72em;letter-spacing:-.01em">/ Портали</span></h1>
+      <span class="counter">Портали спільноти</span>
+    </div>
+    <nav class="header-nav" aria-label="Навігація">
+      <a class="btn btn-ghost" href="./index.html">Каталог</a>
+      <a class="btn btn-ghost" href="./clients.html">Клієнти</a>
+      <a class="btn btn-ghost" href="./portals.html" aria-current="page">Портали</a>
+      <a class="btn btn-ghost header-cta" href="https://github.com/Siaivo/PluginHub/issues/new?template=plugin.yml" target="_blank" rel="noopener">Запропонувати плагін</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <p class="clients-intro" style="color:var(--muted);font-size:14px;margin:14px 0 10px;line-height:1.65;max-width:680px"></p>
+
+  <div id="portals-grid" class="grid" aria-live="polite" aria-busy="true"></div>
+
+  <div id="portals-error" class="state state-error" hidden>
+    <p class="state-title">Не вдалося завантажити portals.json</p>
+    <p class="state-desc">Перевірте зʼєднання або оновіть сторінку. Файл: <code>data/portals.json</code></p>
+    <button type="button" id="retry-portals" class="btn btn-primary">Спробувати ще</button>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>Джерело даних: <a href="./data/portals.json" target="_blank" rel="noopener">data/portals.json</a></span>
+    <span class="dot" aria-hidden="true">·</span> <a href="./index.html">Каталог</a>
+    <span class="dot" aria-hidden="true">·</span> <a href="./clients.html">Клієнти</a>
+    <span class="dot" aria-hidden="true">·</span> <a href="https://github.com/Siaivo/Hub" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script type="module" src="./assets/portals.js"></script>
+</body>
+</html>

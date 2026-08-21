@@ -1,0 +1,25 @@
+# Синхронізується actionʼом (напр. crazy-max/ghaction-github-labeler)
+# Колір без "#", 6 hex символів.
+- name: needs-votes
+  color: FFD700
+  description: "Очікує голосування"
+
+- name: approved
+  color: 0E8A16
+  description: "Схвалено для додавання в base.json"
+
+- name: rejected
+  color: D93F0B
+  description: "Відхилено — не пройшов пороги або порушує правила"
+
+- name: merged
+  color: 1D76DB
+  description: "Додано в реєстр base.json"
+
+- name: duplicate
+  color: CFCFCF
+  description: "Дублікат існуючого плагіна або issue"
+
+- name: invalid
+  color: EDEDED
+  description: "Невалідні дані форми"

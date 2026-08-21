@@ -1,0 +1,79 @@
+[
+  {
+    "id": "web",
+    "title": "Браузер (Web)",
+    "icon": "web",
+    "audience": "Будь-який сучасний браузер — ПК, ноутбук, телефон",
+    "steps": [
+      "Відкрий Lampa у браузері — жодних встановлень не потрібно"
+    ],
+    "links": {
+      "download": "https://cub.watch/",
+      "docs": "https://github.com/Siaivo/PluginHub#readme"
+    },
+    "os_requirements": "Chrome 90+, Firefox 90+, Safari 15+, Edge 90+"
+  },
+  {
+    "id": "android",
+    "title": "Android / Android TV",
+    "icon": "android",
+    "audience": "ТБ-приставки, телефони та планшети",
+    "steps": [
+      "Завантаж APK з GitHub Releases",
+      "Дозволь встановлення з невідомих джерел у налаштуваннях",
+      "Встанови та запусти Lampa"
+    ],
+    "links": {
+      "download": "https://github.com/lampa-app/LAMPA/releases",
+      "docs": "https://github.com/Siaivo/PluginHub#readme"
+    },
+    "os_requirements": "Android 5.0+ / Android TV 5.0+"
+  },
+  {
+    "id": "windows",
+    "title": "Windows",
+    "icon": "windows",
+    "audience": "Десктоп, ноутбук",
+    "steps": [
+      "Завантаж інсталятор з GitHub Releases",
+      "Запусти .exe та дотримуйся підказок встановлювача",
+      "Після встановлення запусти Lampa"
+    ],
+    "links": {
+      "download": "https://github.com/lampa-app/LAMPA/releases",
+      "docs": "https://github.com/Siaivo/PluginHub#readme"
+    },
+    "os_requirements": "Windows 10 / 11 (x64)"
+  },
+  {
+    "id": "tizen-webos",
+    "title": "Samsung (Tizen) / LG (webOS)",
+    "icon": "tv",
+    "audience": "Розумні ТБ Samsung та LG",
+    "steps": [
+      "Встанови віджет Lampa через Tizen Studio (Samsung) або Dev Mode (LG)",
+      "Запусти Lampa з головного екрану ТБ"
+    ],
+    "links": {
+      "download": "https://github.com/lampa-app/LAMPA#tizen--webos",
+      "docs": "https://github.com/Siaivo/PluginHub#readme"
+    },
+    "os_requirements": "Tizen 3.0+ / webOS 3.5+ · потрібен sideload"
+  },
+  {
+    "id": "lampac",
+    "title": "Lampac (сервер / Docker)",
+    "icon": "server",
+    "audience": "Сервер, VPS, Docker-контейнер",
+    "steps": [
+      "Клонуй репозиторій Lampac",
+      "Запусти через Docker або .NET",
+      "Відкрий веб-інтерфейс на порту 9090"
+    ],
+    "links": {
+      "download": "https://github.com/immisterio/Lampac",
+      "docs": "https://github.com/Siaivo/PluginHub#readme"
+    },
+    "os_requirements": ".NET 6+ / Docker"
+  }
+]

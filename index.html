@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Каталог плагінів PluginHub — відібрані плагіни для Lampa. Пошук, категорії, копіювання в один клік.">
+<meta name="color-scheme" content="light dark">
+<title>Каталог плагінів — PluginHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="header-title">
+      <h1>Каталог плагінів</h1>
+      <span id="counter" class="counter" aria-live="polite">Знайдено: —</span>
+    </div>
+    <nav class="header-nav" aria-label="Навігація">
+      <a class="btn btn-ghost" href="./index.html" aria-current="page">Каталог</a>
+      <a class="btn btn-ghost" href="./clients.html">Клієнти</a>
+      <a class="btn btn-ghost" href="./portals.html">Портали</a>
+      <a class="btn btn-primary header-cta" href="https://github.com/Siaivo/PluginHub/issues/new?template=plugin.yml" target="_blank" rel="noopener">Запропонувати плагін</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="catalog-intro" aria-label="Про каталог">
+    <h2>Відібрані плагіни — без шуму</h2>
+    <p>Тільки перевірені джерела для Lampa. <strong>Скопіюй → встав у клієнті</strong> — і готово. Шукай за назвою чи автором, фільтруй за категорією.</p>
+  </section>
+
+  <section class="controls" aria-label="Пошук і фільтр">
+    <div class="search-wrap">
+      <input type="search" id="search" placeholder="Знайти плагін, тему чи автора…" aria-label="Пошук за назвою або автором" autocomplete="off" spellcheck="false">
+      <button type="button" id="clear-search" class="clear-btn" aria-label="Очистити пошук" hidden>×</button>
+    </div>
+    <div class="chips" role="group" aria-label="Фільтр за категорією">
+      <button type="button" class="chip is-active" data-category="all" aria-pressed="true">Всі</button>
+      <button type="button" class="chip" data-category="styles" aria-pressed="false">Стилі</button>
+      <button type="button" class="chip" data-category="content" aria-pressed="false">Контент</button>
+      <button type="button" class="chip" data-category="media" aria-pressed="false">Медіа</button>
+      <button type="button" class="chip" data-category="external-services" aria-pressed="false">Зовнішні сервіси</button>
+      <button type="button" class="chip" data-category="developers" aria-pressed="false">Розробникам</button>
+    </div>
+  </section>
+
+  <div id="grid" class="grid" aria-live="polite" aria-busy="true"></div>
+
+  <div id="state-empty" class="state state-empty" hidden>
+    <p class="state-title">Нічого не знайдено</p>
+    <p class="state-desc">Спробуйте інший запит або скиньте фільтр категорії.</p>
+    <button type="button" id="reset-filters" class="btn btn-primary">Скинути фільтри</button>
+  </div>
+
+  <div id="state-error" class="state state-error" hidden>
+    <p class="state-title">Не вдалося завантажити base.json</p>
+    <p class="state-desc">Перевірте зʼєднання або оновіть сторінку. Файл: <code>data/base.json</code></p>
+    <button type="button" id="retry-load" class="btn btn-primary">Спробувати ще</button>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>Джерело даних: <a href="./data/base.json" target="_blank" rel="noopener">data/base.json</a></span>
+    <span class="dot" aria-hidden="true">·</span> <a href="./clients.html">Клієнти</a>
+    <span class="dot" aria-hidden="true">·</span> <a href="./portals.html">Портали</a>
+    <span class="dot" aria-hidden="true">·</span> <a href="https://github.com/Siaivo/Hub" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script type="module" src="./assets/app.js"></script>
+</body>
+</html>

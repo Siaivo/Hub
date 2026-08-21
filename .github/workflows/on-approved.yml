@@ -1,0 +1,99 @@
+name: On approved
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  issues: write
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: on-approved-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    if: github.event.label.name == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check actor permission
+        id: perm
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACTOR: ${{ github.actor }}
+          REPO: ${{ github.repository }}
+          ASSOC: ${{ github.event.issue.author_association }}
+        run: |
+          # Fast path: author_association
+          case "$ASSOC" in
+            OWNER|COLLABORATOR|MEMBER)
+              echo "allowed=true" >> "$GITHUB_OUTPUT"
+              echo "✅ allowed via author_association=$ASSOC"
+              exit 0
+              ;;
+          esac
+          # Fallback: перевірка write permission через API
+          code=$(curl -s -o /tmp/perm.json -w "%{http_code}" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/collaborators/$ACTOR/permission")
+          echo "perm http $code"
+          cat /tmp/perm.json || true
+          perm=$(jq -r '.permission // empty' /tmp/perm.json 2>/dev/null || echo "")
+          echo "permission=$perm"
+          if [ "$perm" = "admin" ] || [ "$perm" = "write" ] || [ "$perm" = "maintain" ]; then
+            echo "allowed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "allowed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Reject if not allowed
+        if: steps.perm.outputs.allowed != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          echo "⛔ Актор ${{ github.actor }} не має права ставити approved (association=${{ github.event.issue.author_association }})"
+          curl -s -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/issues/$ISSUE/comments" \
+            -d "{\"body\":\"⛔ @${{ github.actor }} не має права підтверджувати плагіни. Потрібен OWNER/COLLABORATOR/MEMBER або write-доступ. Мітку \`approved\` знято.\"}"
+          curl -s -X DELETE \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/issues/$ISSUE/labels/approved"
+          # також додамо коментар що fast-track відхилено
+          exit 1
+
+      - name: Install dependencies
+        if: steps.perm.outputs.allowed == 'true'
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Process approved issue
+        if: steps.perm.outputs.allowed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: node scripts/on-approved.mjs

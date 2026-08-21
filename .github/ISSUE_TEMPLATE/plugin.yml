@@ -1,0 +1,61 @@
+name: Submit Plugin
+description: Подати плагін до реєстру PluginHub
+title: "[Plugin] "
+labels: ["needs-votes"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Заповніть форму для подачі плагіна. Тільки issue, створені через цю форму, беруть участь в автоматичному голосуванні та мерджі в `base.json`.
+        Один плагін = одна категорія. Деталі — в [концепті](../../docs/concept.md).
+
+  - type: input
+    id: name
+    attributes:
+      label: Назва плагіна
+      description: Унікальна назва, 2–60 символів. З неї генерується id (^[A-Za-z0-9._-]+$), case-insensitive.
+      placeholder: my-awesome-plugin
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Короткий опис
+      description: 20–300 символів, без Markdown-заголовків, одне речення для картки.
+      placeholder: Що робить плагін (1–2 речення)
+    validations:
+      required: true
+
+  - type: input
+    id: plugin_url
+    attributes:
+      label: Посилання на плагін
+      description: Валідний https:// URL — GitHub repo, release asset або raw *.js/*.json. Має відповідати HEAD 200.
+      placeholder: https://github.com/username/repo
+    validations:
+      required: true
+
+  - type: input
+    id: author
+    attributes:
+      label: Автор
+      description: GitHub handle або "Імʼя <url>". За замовчуванням — автор issue.
+      placeholder: "@github-handle"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Категорія
+      description: Один плагін = одна категорія. Оберіть найближчу за основною функцією.
+      options:
+        - styles
+        - content
+        - media
+        - external-services
+        - developers
+      default: 0
+    validations:
+      required: true

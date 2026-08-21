@@ -1,0 +1,24 @@
+[
+  {
+    "id": "siaivo",
+    "title": "Siaivo",
+    "url": "http://siaivo.isroot.in/",
+    "badge": "clean",
+    "mirrors": [
+      "http://siaivo.isroot.in/",
+      "http://siaivo.example2.in/",
+      "http://siaivo.example3.in/"
+    ],
+    "description": "Чистий портал спільноти — базове дзеркало без модифікацій, еталон. З нього робляться дзеркала.",
+    "note": "Рекомендовано як основний"
+  },
+  {
+    "id": "kinohub",
+    "title": "KinoHub",
+    "url": "https://kinohub.uk",
+    "badge": "community",
+    "mirrors": [],
+    "description": "Незалежний портал спільноти з власним наповненням та каталогом. Не є дзеркалом Siaivo.",
+    "note": "Альтернативна точка входу"
+  }
+]

@@ -1,0 +1,6 @@
+# CODEOWNERS для PluginHub
+# Вкажіть власників, які мають право fast-track `approved` (author_association: write/maintain/admin або з цього файлу).
+# Формат: <pattern> <@owner> [<@owner2> ...]
+# Див. https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+* @siaivo

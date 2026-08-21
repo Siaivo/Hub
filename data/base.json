@@ -1,0 +1,10 @@
+[
+  {
+    "id": "tstracks",
+    "name": "TsTracks",
+    "description": "Короткий опис до 300 символів",
+    "url": "https://lampame.github.io/main/tstracks.js",
+    "author": "@author",
+    "category": "media"
+  }
+]
