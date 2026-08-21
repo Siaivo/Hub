@@ -31,7 +31,7 @@ jobs:
       - name: Check actor permission
         id: perm
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
           ACTOR: ${{ github.actor }}
           REPO: ${{ github.repository }}
           ASSOC: ${{ github.event.issue.author_association }}
@@ -62,7 +62,7 @@ jobs:
       - name: Reject if not allowed
         if: steps.perm.outputs.allowed != 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
         run: |
@@ -91,8 +91,8 @@ jobs:
       - name: Process approved issue
         if: steps.perm.outputs.allowed == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_BODY: ${{ github.event.issue.body }}
