@@ -11,7 +11,7 @@
     "id": "EpWatch",
     "name": "EpWatch",
     "description": "Стежить за новими серіями ваших улюблених серіалів і надсилає сповіщення в Telegram",
-    "url": "http://lampaua.mooo.com/epwatch.js",
+    "url": "https://lampaua.mooo.com/epwatch.js",
     "author": "@bazarnetua",
     "category": "content"
   },

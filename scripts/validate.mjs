@@ -114,7 +114,7 @@ for (let i = 0; i < data.length; i++) {
     const v = entry.url;
     if (typeof v !== 'string') errors.push(`${prefix} url: має бути рядком`);
     else {
-      if (!v.startsWith('https://')) errors.push(`${prefix} url: має починатися з https:// (значення: "${v}")`);
+      if (!/^https?:\/\//.test(v)) errors.push(`${prefix} url: має починатися з http:// або https:// (значення: "${v}")`);
       try {
         const u = new URL(v);
         if (u.protocol !== 'https:') errors.push(`${prefix} url: протокол має бути https:`);
