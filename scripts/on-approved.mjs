@@ -207,6 +207,33 @@ async function addToBaseAndPR(issueNumber, entry) {
     }),
   });
   const pr = await prRes.json();
+
+  if (!pr.number) {
+    throw new Error(`Не вдалося створити PR: ${JSON.stringify(pr).slice(0, 500)}`);
+  }
+
+  // Автоматичний merge
+  console.log(`🔀 Мерж PR #${pr.number}...`);
+  const mergeRes = await ghFetch(`/repos/${owner}/${repo}/pulls/${pr.number}/merge`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      merge_method: 'squash',
+      commit_title: `feat: add ${entry.id} (#${issueNumber})`,
+      commit_message: `Додано плагін ${entry.name} з issue #${issueNumber}`,
+    }),
+  });
+  const mergeData = await mergeRes.json();
+  console.log(`✅ PR #${pr.number} замержено: ${mergeData.merged}`);
+
+  // Видалити гілку після мержу
+  try {
+    await ghFetch(`/repos/${owner}/${repo}/git/refs/heads/${branch}`, { method: 'DELETE' });
+    console.log(`🗑️ Гілка ${branch} видалена`);
+  } catch {
+    console.log(`⚠️ Не вдалося видалити гілку ${branch}`);
+  }
+
   return pr;
 }
 
@@ -278,8 +305,8 @@ async function main() {
       await setLabels(issueNumber, ['merged']);
       await closeIssue(issueNumber);
     } else {
-      console.log(`✅ PR створено: ${pr.html_url} (#${pr.number})`);
-      await postComment(issueNumber, `✅ Додано в реєстр через PR #${pr.number}: ${pr.html_url}\n\nЗапис \`${entry.id}\` буде в \`main\` після мерджу.`);
+      console.log(`✅ PR створено та замержено: ${pr.html_url} (#${pr.number})`);
+      await postComment(issueNumber, `✅ Плагін \`${entry.id}\` додано в реєстр!\n\nPR: ${pr.html_url} (#${pr.number})\n\nСайт оновиться найближчим часом.`);
       await setLabels(issueNumber, ['merged']);
       await closeIssue(issueNumber);
     }
