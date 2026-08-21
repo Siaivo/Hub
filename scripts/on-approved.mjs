@@ -165,7 +165,7 @@ async function addToBaseAndPR(issueNumber, entry) {
   const branch = `plugin/add-${entry.id}-${issueNumber}`;
   const [owner, repo] = REPO.split('/');
 
-  // Перевірити чи вже існує PR (відкритий або закритий) для цієї гілки
+  // Перевірити чи вже існує PR для цієї гілки
   for (const state of ['open', 'closed']) {
     const existingPrRes = await ghFetch(`/repos/${owner}/${repo}/pulls?state=${state}&head=${owner}:${branch}&base=main`);
     const existingPrs = await existingPrRes.json();
@@ -174,7 +174,18 @@ async function addToBaseAndPR(issueNumber, entry) {
       if (existingPr.merged) {
         throw new Error(`PR #${existingPr.number} вже замержено — ${entry.id} вже в реєстрі`);
       }
-      return { html_url: existingPr.html_url, number: existingPr.number };
+      if (state === 'open') {
+        // Відкритий PR — повертаємо його, не створюючи нового
+        return { html_url: existingPr.html_url, number: existingPr.number };
+      }
+      // Закритий, але не замержений — видаляємо гілку, щоб створити новий PR
+      console.log(`🗑️ Видаляю гілку ${branch} (PR #${existingPr.number} закритий без мержу)`);
+      try {
+        await ghFetch(`/repos/${owner}/${repo}/git/refs/heads/${branch}`, { method: 'DELETE' });
+      } catch {
+        // Гілка може вже не існувати
+      }
+      break;
     }
   }
 
