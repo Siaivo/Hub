@@ -5,9 +5,8 @@
     "url": "http://siaivo.isroot.in/",
     "badge": "clean",
     "mirrors": [
-      "http://siaivo.isroot.in/",
-      "http://siaivo.example2.in/",
-      "http://siaivo.example3.in/"
+      "https://siaivo.isroot.in",
+      "https://siaivo.github.io"
     ],
     "description": "Чистий портал спільноти — базове дзеркало без модифікацій, еталон. З нього робляться дзеркала.",
     "note": "Рекомендовано як основний"
