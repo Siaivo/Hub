@@ -7,7 +7,7 @@ const root = path.resolve(__dirname, '..');
 const basePath = path.join(root, 'data', 'base.json');
 const schemaPath = path.join(root, 'data', 'schema.json');
 
-const ALLOWED = new Set(['id', 'name', 'description', 'url', 'author', 'category']);
+const ALLOWED = new Set(['id', 'name', 'description', 'url', 'author', 'category', 'siaivo']);
 const CATEGORIES = new Set(['styles', 'content', 'media', 'external-services', 'developers']);
 const ID_RE = /^[A-Za-z0-9._-]+$/;
 const checkUrl = process.argv.includes('--check-url');

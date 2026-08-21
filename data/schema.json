@@ -39,6 +39,10 @@
       "category": {
         "type": "string",
         "enum": ["styles", "content", "media", "external-services", "developers"]
+      },
+      "siaivo": {
+        "type": "boolean",
+        "description": "Позначка належності плагіна до Siaivo (якщо true — на сайті показується іконка)"
       }
     }
   }
