@@ -47,7 +47,7 @@
     "os_requirements": "Android 5.0+ / Android TV 5.0+"
   },
   {
-    "id": "tizen-webos",
+    "id": "smart",
     "title": "Lampa UA | Kinihub UK",
     "icon": "tv",
     "audience": "Розумні ТБ Samsung та LG",
@@ -62,13 +62,29 @@
     "os_requirements": "Tizen 3.0+ / webOS 3.5+ · потрібен sideload"
   },
   {
-    "id": "tizen-webos",
+    "id": "smart",
     "title": "Lampa UA | Kinihub UK",
     "icon": "tv",
-    "audience": "Розумні ТБ Samsung та LG",
+    "audience": "Актуальний пакет .ipk для прямого встановлення",
     "steps": [
-      "Встанови віджет Lampa через Tizen Studio (Samsung) або Dev Mode (LG)",
+      "Встанови віджет Lampa через Dev Mode (LG)",
       "Запусти Lampa з головного екрану ТБ"
+    ],
+    "links": {
+      "download": "https://kinohub.uk/lampaua.ipk",
+      "docs": "https://kinohub.uk"
+    }
+  },{
+    "id": "smart",
+    "title": "Lampa UA | Kinihub UK",
+    "icon": "tv",
+    "audience": "Homebrew Channel",
+    "steps": [
+      "Відкрийте Homebrew Channel на телевізорі",
+      "Перейдіть у Settings → Add repository",
+      "Введіть адресу: https://kinohub.uk/lg",
+      "У репозиторії доступна Lampa UA (com.lampaua.tv)",
+      "Важливо: після встановлення повністю перезавантажте телевізор."
     ],
     "links": {
       "download": "https://kinohub.uk/lampaua.ipk",
@@ -76,7 +92,7 @@
     }
   },
   {
-    "id": "hisense",
+    "id": "smart",
     "title": "Лампа UA",
     "icon": "tv",
     "audience": "Телевізори Viida | Hisense",

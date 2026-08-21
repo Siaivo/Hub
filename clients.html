@@ -11,8 +11,10 @@
 <link rel="stylesheet" href="./assets/style.css">
 <style>
 .clients-nav{padding:14px 0 8px;display:flex;flex-wrap:wrap;gap:8px}
-.clients-nav a.chip{text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-.clients-nav a.chip svg{width:14px;height:14px;flex-shrink:0;opacity:.8}
+.clients-nav .chip{text-decoration:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;background:none;border:1px solid var(--border);font-family:var(--font-body);font-size:13px;color:var(--text)}
+.clients-nav .chip svg{width:14px;height:14px;flex-shrink:0;opacity:.8}
+.clients-nav .chip.is-active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.clients-nav .chip:not(.is-active):hover{border-color:color-mix(in srgb, var(--accent) 30%, var(--border));color:var(--accent)}
 .clients-intro{color:var(--muted);font-size:14px;margin:14px 0 10px;line-height:1.65;max-width:680px}
 #clients-grid{display:grid;gap:18px;grid-template-columns:1fr}
 @media(min-width:860px){#clients-grid{grid-template-columns:repeat(2,1fr);gap:18px}}
@@ -32,12 +34,7 @@
 .client-steps li{margin:2px 0}
 .os-req{font-size:12px;color:var(--muted);margin-top:6px}
 .client-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.client-details{margin-top:10px}
-.client-details summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--accent);list-style:none;font-family:var(--font-body)}
-.client-details summary::-webkit-details-marker{display:none}
-.client-details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
-.client-details[open] summary::before{transform:rotate(90deg)}
-.client-details .details-body{margin-top:8px;font-size:13.5px;line-height:1.6;color:var(--muted)}
+
 </style>
 </head>
 <body>
@@ -45,7 +42,7 @@
   <div class="container header-inner">
     <div class="header-title">
       <h1><a href="./index.html" style="color:inherit;text-decoration:none">Каталог плагінів</a> <span style="font-weight:400;color:var(--muted);font-family:var(--font-body);font-size:.72em;letter-spacing:-.01em">/ Клієнти</span></h1>
-      <span class="counter">5 платформ</span>
+      <span class="counter" id="platform-counter"></span>
     </div>
     <nav class="header-nav" aria-label="Навігація">
       <a class="btn btn-ghost" href="./index.html">Каталог</a>
@@ -57,12 +54,10 @@
 </header>
 
 <main class="container">
-  <nav class="chips clients-nav" aria-label="Швидка навігація по платформах">
-    <a class="chip" href="#web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg> Браузер</a>
-    <a class="chip" href="#android"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="7" width="14" height="11" rx="2"/><path d="M9 7V5"/><path d="M15 7V5"/><circle cx="9.5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="12" r="1" fill="currentColor" stroke="none"/></svg> Android</a>
-    <a class="chip" href="#windows"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 3v18"/></svg> Windows</a>
-    <a class="chip" href="#tizen-webos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M9 21h6"/><path d="M12 18v3"/></svg> Tizen / webOS</a>
-    <a class="chip" href="#lampac"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><circle cx="8" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="8" cy="17" r="1" fill="currentColor" stroke="none"/></svg> Lampac</a>
+  <nav class="chips clients-nav" aria-label="Фільтр платформ" id="clients-filters">
+    <button class="chip is-active" data-filter="all">Усі</button>
+    <button class="chip" data-filter="android"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="7" width="14" height="11" rx="2"/><path d="M9 7V5"/><path d="M15 7V5"/><circle cx="9.5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="12" r="1" fill="currentColor" stroke="none"/></svg> Android</button>
+    <button class="chip" data-filter="smart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M9 21h6"/><path d="M12 18v3"/></svg> Smart TV</button>
   </nav>
 
   <div id="clients-grid" class="grid" aria-live="polite" aria-busy="true"></div>

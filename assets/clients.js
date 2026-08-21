@@ -4,9 +4,7 @@ const toastEl = document.getElementById('toast');
 const retryBtn = document.getElementById('retry-clients');
 
 const SVG_ICONS = {
-  web: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg>',
   android: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="7" width="14" height="11" rx="2"/><path d="M9 7V5"/><path d="M15 7V5"/><circle cx="9.5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="12" r="1" fill="currentColor" stroke="none"/><path d="M9 15c1.2 1 2.8 1 4 0"/></svg>',
-  windows: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 3v18"/></svg>',
   tv: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M9 21h6"/><path d="M12 18v3"/></svg>',
   server: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><circle cx="8" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="8" cy="17" r="1" fill="currentColor" stroke="none"/></svg>',
 };
@@ -30,8 +28,8 @@ function showToast(msg, isError = false) {
 }
 
 function badgeHtml(id) {
-  if (id === 'tizen-webos') return '<span class="badge badge-sideload">Потрібен sideload</span>';
-  if (id === 'web' || id === 'android' || id === 'windows') return '<span class="badge badge-recommended">Рекомендовано</span>';
+  if (id === 'smart') return '<span class="badge badge-sideload">Потрібен sideload</span>';
+  if (id === 'android') return '<span class="badge badge-recommended">Рекомендовано</span>';
   return '';
 }
 
@@ -49,7 +47,7 @@ function cardHtml(c) {
   if (c.links?.docs) links.push(`<a class="btn btn-secondary" href="${esc(c.links.docs)}" target="_blank" rel="noopener">Документація</a>`);
 
   return `
-  <article class="card client-card" id="${esc(c.id)}">
+  <article class="card client-card" data-category="${esc(c.id)}" id="${esc(c.id)}">
     <div class="client-head">
       <span class="client-icon" aria-hidden="true">${iconChar}</span>
       <h3>${esc(c.title)}</h3>
@@ -59,12 +57,6 @@ function cardHtml(c) {
     <ol class="client-steps">${steps}</ol>
     ${c.os_requirements ? `<p class="os-req">Вимоги: ${esc(c.os_requirements)}</p>` : ''}
     ${links.length ? `<div class="client-links">${links.join('')}</div>` : ''}
-    <details class="client-details">
-      <summary aria-expanded="false">Як додати плагіни</summary>
-      <div class="details-body">
-        <p>Після встановлення клієнта перейди в <a href="./index.html">каталог</a>, скопіюй URL плагіна та встав його в налаштуваннях клієнта. Після перезапуску плагін зʼявиться у списку.</p>
-      </div>
-    </details>
   </article>`;
 }
 
@@ -85,36 +77,44 @@ async function load() {
     grid.innerHTML = data.map(cardHtml).join('');
     grid.setAttribute('aria-busy', 'false');
 
-    // wire details aria-expanded
-    grid.querySelectorAll('details.client-details').forEach(d => {
-      const s = d.querySelector('summary');
-      const sync = () => s.setAttribute('aria-expanded', String(d.open));
-      d.addEventListener('toggle', sync);
-      sync();
-    });
+    // dynamic counter
+    const counterEl = document.getElementById('platform-counter');
+    const categories = [...new Set(data.map(c => c.id))];
+    if (counterEl) counterEl.textContent = categories.length + ' платформ';
 
-    // highlight
+    // filter chips
+    const filtersEl = document.getElementById('clients-filters');
+    if (filtersEl) {
+      filtersEl.addEventListener('click', e => {
+        const btn = e.target.closest('[data-filter]');
+        if (!btn) return;
+        const filter = btn.dataset.filter;
+        filtersEl.querySelectorAll('.chip').forEach(c => c.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        grid.querySelectorAll('.client-card').forEach(card => {
+          card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+        });
+        // update hash for shareable filter links
+        if (filter === 'all') history.replaceState(null, '', location.pathname + location.search);
+        else history.replaceState(null, '', '#' + filter);
+      });
+      // apply filter from URL hash on load
+      const initFilter = location.hash.replace('#', '');
+      if (initFilter && categories.includes(initFilter)) {
+        const btn = filtersEl.querySelector(`[data-filter="${initFilter}"]`);
+        if (btn) btn.click();
+      }
+    }
+
+    // highlight from ?highlight= query param
     const hl = new URLSearchParams(location.search).get('highlight');
     if (hl) {
       const el = document.getElementById(hl);
       if (el) {
         el.classList.add('is-highlight');
-        // smooth scroll if hash not already handling it
-        if (!location.hash) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        else if (location.hash.slice(1) === hl) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
-    } else if (location.hash) {
-      const el = document.getElementById(location.hash.slice(1));
-      if (el) el.classList.add('is-highlight');
     }
-
-    // hash change highlight
-    window.addEventListener('hashchange', () => {
-      grid.querySelectorAll('.client-card.is-highlight').forEach(e => e.classList.remove('is-highlight'));
-      const id = location.hash.slice(1);
-      const el = document.getElementById(id);
-      if (el) el.classList.add('is-highlight');
-    });
   } catch (e) {
     grid.setAttribute('aria-busy', 'false');
     if (errEl) errEl.hidden = false;

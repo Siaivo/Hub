@@ -184,6 +184,11 @@ img{max-width:100%}
   font-size:17px;font-weight:700;line-height:1.25;letter-spacing:-.02em;
   word-break:break-word;color:var(--text);
 }
+.siaivo-icon{
+  display:inline-block;vertical-align:middle;
+  width:18px;height:17px;margin-right:5px;
+  border-radius:50%;flex-shrink:0;
+}
 .category-badge{
   flex-shrink:0;
   font-family:var(--font-mono);

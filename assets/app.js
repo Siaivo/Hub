@@ -95,10 +95,11 @@ function filterData() {
 function cardHtml(item) {
   const catLabel = CATEGORY_LABELS[item.category] || item.category;
   const catKey = item.category || 'all';
+  const siaivoIcon = item.siaivo ? '<img src="./assets/siaivo-logo.svg" alt="" class="siaivo-icon" title="Плагін від Siaivo" width="18" height="17">' : '';
   return `
   <article class="card">
     <div class="card-top">
-      <h3>${esc(item.name)}</h3>
+      <h3>${siaivoIcon}${esc(item.name)}</h3>
       <span class="category-badge" data-cat="${esc(catKey)}">${esc(catLabel)}</span>
     </div>
     <p class="card-desc" title="${esc(item.description)}">${esc(item.description)}</p>
