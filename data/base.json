@@ -2,7 +2,7 @@
   {
     "id": "bandera-2.0",
     "name": "Bandera 2.0",
-    "description": "Онлайн-провайдер на API v2: шукає контент за назвою, IMDb або Kinopoisk, підтримує вибір озвучки/сезону для серіалів, отримує стріми для епізодів і фільмів, а також вміє підставляти проксі-URL для внутрішнього плеєра.",
+    "description": "Плагін для перегляду онлайн джерел",
     "url": "https://lampame.github.io/main/bo.js",
     "author": "@lampame",
     "category": "media"
