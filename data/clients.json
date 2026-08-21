@@ -17,7 +17,7 @@
   },
   {
     "id": "android",
-    "title": "Lampa UA | Kinihub UK",
+    "title": "Lampa UA | Kinohub UK",
     "icon": "android",
     "audience": "ТБ-приставки, телефони та планшети",
     "steps": [
@@ -48,7 +48,7 @@
   },
   {
     "id": "smart",
-    "title": "Lampa UA | Kinihub UK",
+    "title": "Lampa UA | Kinohub UK",
     "icon": "tv",
     "audience": "Розумні ТБ Samsung та LG",
     "steps": [
@@ -63,7 +63,7 @@
   },
   {
     "id": "smart",
-    "title": "Lampa UA | Kinihub UK",
+    "title": "Lampa UA | Kinohub UK",
     "icon": "tv",
     "audience": "Актуальний пакет .ipk для прямого встановлення",
     "steps": [
@@ -76,7 +76,7 @@
     }
   },{
     "id": "smart",
-    "title": "Lampa UA | Kinihub UK",
+    "title": "Lampa UA | Kinohub UK",
     "icon": "tv",
     "audience": "Homebrew Channel",
     "steps": [

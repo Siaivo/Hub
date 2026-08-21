@@ -8,6 +8,14 @@
     "category": "media"
   },
   {
+    "id": "EpWatch",
+    "name": "EpWatch",
+    "description": "Стежить за новими серіями ваших улюблених серіалів і надсилає сповіщення в Telegram",
+    "url": "http://lampaua.mooo.com/epwatch.js",
+    "author": "@bazarnetua",
+    "category": "content"
+  },
+  {
     "id": "infuse-save",
     "name": "Infuse Save",
     "description": "Додає дії Save to Infuse та Save all to Infuse у список торрент-файлів. Приводить посилання до сумісного формату і передає їх в Infuse через deeplink.",
