@@ -132,7 +132,13 @@ function validateEntry(entry, existing) {
 }
 
 function sh(cmd, opts = {}) {
-  return execSync(cmd, { stdio: 'pipe', encoding: 'utf8', ...opts });
+  const { allowFail, ...execOpts } = opts;
+  try {
+    return execSync(cmd, { stdio: 'pipe', encoding: 'utf8', ...execOpts });
+  } catch (e) {
+    if (allowFail) return { exitCode: e.status || 1, stdout: e.stdout || '', stderr: e.stderr || '' };
+    throw e;
+  }
 }
 
 async function addToBaseAndPR(issueNumber, entry) {
@@ -159,6 +165,19 @@ async function addToBaseAndPR(issueNumber, entry) {
   const branch = `plugin/add-${entry.id}-${issueNumber}`;
   const [owner, repo] = REPO.split('/');
 
+  // Перевірити чи вже існує PR (відкритий або закритий) для цієї гілки
+  for (const state of ['open', 'closed']) {
+    const existingPrRes = await ghFetch(`/repos/${owner}/${repo}/pulls?state=${state}&head=${owner}:${branch}&base=main`);
+    const existingPrs = await existingPrRes.json();
+    if (Array.isArray(existingPrs) && existingPrs.length > 0) {
+      const existingPr = existingPrs[0];
+      if (existingPr.merged) {
+        throw new Error(`PR #${existingPr.number} вже замержено — ${entry.id} вже в реєстрі`);
+      }
+      return { html_url: existingPr.html_url, number: existingPr.number };
+    }
+  }
+
   // git
   try {
     sh(`git checkout -b ${branch}`, { cwd: root });
@@ -168,8 +187,13 @@ async function addToBaseAndPR(issueNumber, entry) {
   sh(`git config user.name "github-actions[bot]"`, { cwd: root });
   sh(`git config user.email "github-actions[bot]@users.noreply.github.com"`, { cwd: root });
   sh(`git add data/base.json`, { cwd: root });
+  const diffCheck = sh(`git diff --cached --quiet`, { cwd: root, allowFail: true });
+  if (diffCheck.exitCode === 0) {
+    console.log('⚠️  Немає змін у base.json — пропускаємо коміт');
+    return { html_url: '', number: 0, noChanges: true };
+  }
   sh(`git commit -m "feat: add ${entry.id} from #${issueNumber}"`, { cwd: root });
-  sh(`git push -u origin ${branch}`, { cwd: root });
+  sh(`git push --force-with-lease -u origin ${branch}`, { cwd: root });
 
   // Створити PR через API
   const prRes = await ghFetch(`/repos/${owner}/${repo}/pulls`, {
@@ -248,13 +272,25 @@ async function main() {
   // Створити гілку, коміт, PR
   try {
     const pr = await addToBaseAndPR(issueNumber, entry);
-    console.log(`✅ PR створено: ${pr.html_url} (#${pr.number})`);
-    await postComment(issueNumber, `✅ Додано в реєстр через PR #${pr.number}: ${pr.html_url}\n\nЗапис \`${entry.id}\` буде в \`main\` після мерджу.`);
-    await setLabels(issueNumber, ['merged']);
-    await closeIssue(issueNumber);
+    if (pr.noChanges) {
+      console.log('⚠️  Запис вже є в реєстрі — нічого не змінено');
+      await postComment(issueNumber, `⚠️ Запис \`${entry.id}\` вже є в реєстрі. Нічого не змінено.`);
+      await setLabels(issueNumber, ['merged']);
+      await closeIssue(issueNumber);
+    } else {
+      console.log(`✅ PR створено: ${pr.html_url} (#${pr.number})`);
+      await postComment(issueNumber, `✅ Додано в реєстр через PR #${pr.number}: ${pr.html_url}\n\nЗапис \`${entry.id}\` буде в \`main\` після мерджу.`);
+      await setLabels(issueNumber, ['merged']);
+      await closeIssue(issueNumber);
+    }
   } catch (e) {
-    // Якщо конфлікт гілки/PR вже існує — повідомити
     const msg = e.message || String(e);
+    if (msg.includes('вже замержено')) {
+      await postComment(issueNumber, `✅ ${msg}`);
+      await setLabels(issueNumber, ['merged']);
+      await closeIssue(issueNumber);
+      process.exit(0);
+    }
     if (msg.includes('already exists') || msg.includes('pull request already exists')) {
       await postComment(issueNumber, `⚠️ PR вже існує або гілка зайнята: ${msg.slice(0, 800)}`);
       console.error(msg);
