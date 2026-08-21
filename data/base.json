@@ -1,5 +1,13 @@
 [
   {
+    "id": "netflix",
+    "name": "Netflix",
+    "description": "Перетворює головну сторінку на інтерфейс, дуже схожий на Netflix.",
+    "url": "https://adambenhassen.github.io/netflix.js",
+    "author": "@adambenhassen",
+    "category": "styles"
+  },
+  {
     "id": "tstracks",
     "name": "TsTracks",
     "description": "Детальна інформація про аудіо/субтитри та зручний вибір доріжок від TorrServer",
