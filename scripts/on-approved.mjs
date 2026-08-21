@@ -147,6 +147,12 @@ async function addToBaseAndPR(issueNumber, entry) {
   const data = JSON.parse(raw);
   if (!Array.isArray(data)) throw new Error('data/base.json має бути масивом');
 
+  // Перевірка на дублікат перед додаванням
+  const lowId = (entry.id || '').toLowerCase();
+  if (data.some((e) => (e.id || '').toLowerCase() === lowId)) {
+    return { html_url: '', number: 0, noChanges: true };
+  }
+
   data.push(entry);
   // Сортування за name (locale, case-insensitive аналог — за lower)
   data.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
