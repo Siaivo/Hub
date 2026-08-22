@@ -1,11 +1,60 @@
 [
   {
+    "id": "anti-dmca",
+    "name": "Anti DMCA",
+    "description": "Обхід обмежень DMCA: прибирає або замінює заблоковані джерела у видачі.",
+    "url": "https://levende.github.io/lampa-plugins/anti-dmca.js",
+    "author": "@levende",
+    "category": "video"
+  },
+  {
+    "id": "balancer-sanitizer",
+    "name": "Balancer Sanitizer",
+    "description": "Очищує та нормалізує URL-и балансерів джерел, прибираючи зайві параметри.",
+    "url": "https://levende.github.io/lampa-plugins/balancer-sanitizer.js",
+    "author": "@levende",
+    "category": "other"
+  },
+  {
     "id": "bandera-2.0",
     "name": "Bandera 2.0",
     "description": "Плагін для перегляду онлайн джерел",
     "url": "https://lampame.github.io/main/bo.js",
     "author": "@lampame",
     "category": "video"
+  },
+  {
+    "id": "bookmarks-sync",
+    "name": "Bookmarks Sync",
+    "description": "Синхронізує закладки та історію з сервісом CUB. Замінює локальні закладки даними з CUB.",
+    "url": "https://levende.github.io/lampa-plugins/bookmarks-sync.js",
+    "author": "@levende",
+    "category": "other"
+  },
+  {
+    "id": "community-watches",
+    "name": "CommunityWatches",
+    "description": "Контент-лайни Community Watches: «Топ тижня» та «Сховані геми» для головної, фільмів і серіалів. Кешує результати.",
+    "url": "https://lampame.github.io/main/cw.js",
+    "author": "Lampa Movie Enhancer",
+    "category": "collections",
+    "siaivo": true
+  },
+  {
+    "id": "concert-search",
+    "name": "Concert Torr Search",
+    "description": "Спеціалізований плагін для пошуку концертів і музичних релізів у підключених торрент-джерелах. Дає швидкий вхід у тематичний пошук без ручних фільтрів.",
+    "url": "https://lampame.github.io/main/cts.js",
+    "author": "Lampa Movie Enhancer",
+    "category": "video"
+  },
+  {
+    "id": "custom-favs",
+    "name": "Custom Favorites",
+    "description": "Розширює закладки Lampa користувацькими типами для зручнішої організації контенту.",
+    "url": "https://levende.github.io/lampa-plugins/custom-favs.js",
+    "author": "@levende",
+    "category": "other"
   },
   {
     "id": "EpWatch",
@@ -16,6 +65,22 @@
     "category": "other"
   },
   {
+    "id": "history-filter",
+    "name": "History Filter",
+    "description": "Фільтрування та видалення елементів з історії перегляду за різними критеріями.",
+    "url": "https://levende.github.io/lampa-plugins/history-filter.js",
+    "author": "@levende",
+    "category": "other"
+  },
+  {
+    "id": "imdb-trailers",
+    "name": "IMDb Trailers",
+    "description": "Трендові трейлери з IMDb: горизонтальна лінія на головній, повноекранний режим з пагінацією та вибором якості.",
+    "url": "https://lampame.github.io/main/timdb.js",
+    "author": "Lampa Movie Enhancer",
+    "category": "video"
+  },
+  {
     "id": "infuse-save",
     "name": "Infuse Save",
     "description": "Додає дії Save to Infuse та Save all to Infuse у список торрент-файлів. Приводить посилання до сумісного формату і передає їх в Infuse через deeplink.",
@@ -24,12 +89,28 @@
     "category": "other"
   },
   {
-    "id": "tstracks",
-    "name": "TsTracks",
-    "description": "Детальна інформація про аудіо/субтитри та зручний вибір доріжок від TorrServer.",
-    "url": "https://lampame.github.io/main/tstracks.js",
+    "id": "lampac-src-filter",
+    "name": "Lampac Source Filter",
+    "description": "Фільтрує джерела Lampac, дозволяючи приховати небажані провайдери з видачі.",
+    "url": "https://levende.github.io/lampa-plugins/lampac-src-filter.js",
+    "author": "@levende",
+    "category": "video"
+  },
+  {
+    "id": "lnum",
+    "name": "LNUM",
+    "description": "Додає каталог LNum як додаткове джерело контенту",
+    "url": "https://levende.github.io/lampa-plugins/lnum.js",
+    "author": "@levende",
+    "category": "collections"
+  },
+  {
+    "id": "movie-enhancer",
+    "name": "Movie Enhancer",
+    "description": "Модуль покращень інтерфейсу картки: редактор кнопок, режим іконок, додаткові рейтинги (MDBList/Streaming Discovery), перемикач джерел у шапці, англомовні метадані, якість та тривалість серій.",
+    "url": "https://lampame.github.io/main/lme.js",
     "author": "Lampa Movie Enhancer",
-    "category": "tracks"
+    "category": "theme"
   },
   {
     "id": "netflix",
@@ -48,61 +129,12 @@
     "category": "collections"
   },
   {
-    "id": "concert-search",
-    "name": "Concert Torr Search",
-    "description": "Спеціалізований плагін для пошуку концертів і музичних релізів у підключених торрент-джерелах. Дає швидкий вхід у тематичний пошук без ручних фільтрів.",
-    "url": "https://lampame.github.io/main/cts.js",
-    "author": "Lampa Movie Enhancer",
-    "category": "video"
-  },
-  {
-    "id": "movie-enhancer",
-    "name": "Movie Enhancer",
-    "description": "Модуль покращень інтерфейсу картки: редактор кнопок, режим іконок, додаткові рейтинги (MDBList/Streaming Discovery), перемикач джерел у шапці, англомовні метадані, якість та тривалість серій.",
-    "url": "https://lampame.github.io/main/lme.js",
+    "id": "nightingale",
+    "name": "Nightingale",
+    "description": "Додає на картки бейдж з прапором України, якщо WH API підтверджує наявність українського перекладу в Онлайн-джерелах.",
+    "url": "https://lampame.github.io/main/n.js",
     "author": "Lampa Movie Enhancer",
     "category": "theme"
-  },
-  {
-    "id": "torrent-manager",
-    "name": "Torrent Downloader",
-    "description": "Інтегрує торент-клієнти (qBittorrent, Transmission, Synology, Keenetic) у Lampa: панель завантажень, pause/resume/delete, сортування та метадані.",
-    "url": "https://lampame.github.io/main/torrentmanager.js",
-    "author": "Lampa Movie Enhancer",
-    "category": "other"
-  },
-  {
-    "id": "trakt-tv",
-    "name": "TraktTV",
-    "description": "Глибока інтеграція з Trakt: OAuth, синхронізація переглядів/прогресу, списки/колекції, Up Next для серіалів, UI прогресу на картках.",
-    "url": "https://lampame.github.io/main/trakttv.js",
-    "author": "Lampa Movie Enhancer",
-    "category": "other"
-  },
-  {
-    "id": "tracks",
-    "name": "Tracks Probe",
-    "description": "Аналізує медіапотоки через probe API (кодеки, мови, канали, бітрейт, субтитри) і показує метаінфо в списку торрент-файлів. Покращує перемикання доріжок у плеєрі.",
-    "url": "https://lampame.github.io/main/tracks.js",
-    "author": "Lampa Movie Enhancer",
-    "category": "tracks"
-  },
-  {
-    "id": "tryzub-tv",
-    "name": "TryzubTV",
-    "description": "Провайдер українського ТБ-контенту з API TryzubTV: канали, категорії та каталог-лінії з кешуванням.",
-    "url": "https://lampame.github.io/main/ttv.js",
-    "author": "Lampa Movie Enhancer",
-    "category": "iptv"
-  },
-  {
-    "id": "community-watches",
-    "name": "CommunityWatches",
-    "description": "Контент-лайни Community Watches: «Топ тижня» та «Сховані геми» для головної, фільмів і серіалів. Кешує результати.",
-    "url": "https://lampame.github.io/main/cw.js",
-    "author": "Lampa Movie Enhancer",
-    "category": "collections",
-    "siaivo": true
   },
   {
     "id": "nightingale-notifications",
@@ -113,90 +145,10 @@
     "category": "other"
   },
   {
-    "id": "nightingale",
-    "name": "Nightingale",
-    "description": "Додає на картки бейдж з прапором України, якщо WH API підтверджує наявність українського перекладу в Онлайн-джерелах.",
-    "url": "https://lampame.github.io/main/n.js",
-    "author": "Lampa Movie Enhancer",
-    "category": "theme"
-  },
-  {
-    "id": "imdb-trailers",
-    "name": "IMDb Trailers",
-    "description": "Трендові трейлери з IMDb: горизонтальна лінія на головній, повноекранний режим з пагінацією та вибором якості.",
-    "url": "https://lampame.github.io/main/timdb.js",
-    "author": "Lampa Movie Enhancer",
-    "category": "video"
-  },
-  {
-    "id": "lnum",
-    "name": "LNUM",
-    "description": "Додає каталог LNum як додаткове джерело контенту",
-    "url": "https://levende.github.io/lampa-plugins/lnum.js",
-    "author": "@levende",
-    "category": "collections"
-  },
-  {
-    "id": "bookmarks-sync",
-    "name": "Bookmarks Sync",
-    "description": "Синхронізує закладки та історію з сервісом CUB. Замінює локальні закладки даними з CUB.",
-    "url": "https://levende.github.io/lampa-plugins/bookmarks-sync.js",
-    "author": "@levende",
-    "category": "other"
-  },
-  {
     "id": "profiles",
     "name": "Profiles",
     "description": "Керування профілями в Lampa без CUB: незалежні профілі з налаштуваннями, м'яке перемикання, інтеграція з Lampac.",
     "url": "https://levende.github.io/lampa-plugins/profiles.js",
-    "author": "@levende",
-    "category": "other"
-  },
-  {
-    "id": "tmdb-networks",
-    "name": "TMDB Networks",
-    "description": "Додає на картки кнопки стримінгових сервісів і платформ, де вийшов фільм чи серіал. Налаштування: Параметри → Інтерфейс → Платформи.",
-    "url": "https://levende.github.io/lampa-plugins/tmdb-networks.js",
-    "author": "@levende",
-    "category": "theme"
-  },
-  {
-    "id": "custom-favs",
-    "name": "Custom Favorites",
-    "description": "Розширює закладки Lampa користувацькими типами для зручнішої організації контенту.",
-    "url": "https://levende.github.io/lampa-plugins/custom-favs.js",
-    "author": "@levende",
-    "category": "other"
-  },
-  {
-    "id": "lampac-src-filter",
-    "name": "Lampac Source Filter",
-    "description": "Фільтрує джерела Lampac, дозволяючи приховати небажані провайдери з видачі.",
-    "url": "https://levende.github.io/lampa-plugins/lampac-src-filter.js",
-    "author": "@levende",
-    "category": "video"
-  },
-  {
-    "id": "anti-dmca",
-    "name": "Anti DMCA",
-    "description": "Обхід обмежень DMCA: прибирає або замінює заблоковані джерела у видачі.",
-    "url": "https://levende.github.io/lampa-plugins/anti-dmca.js",
-    "author": "@levende",
-    "category": "video"
-  },
-  {
-    "id": "trash-filter",
-    "name": "Trash Filter",
-    "description": "Фільтрує сміттєвий контент з результатів пошуку, прибираючи низькоякісні результати.",
-    "url": "https://levende.github.io/lampa-plugins/trash-filter.js",
-    "author": "@levende",
-    "category": "other"
-  },
-  {
-    "id": "history-filter",
-    "name": "History Filter",
-    "description": "Фільтрування та видалення елементів з історії перегляду за різними критеріями.",
-    "url": "https://levende.github.io/lampa-plugins/history-filter.js",
     "author": "@levende",
     "category": "other"
   },
@@ -209,6 +161,62 @@
     "category": "collections"
   },
   {
+    "id": "tmdb-networks",
+    "name": "TMDB Networks",
+    "description": "Додає на картки кнопки стримінгових сервісів і платформ, де вийшов фільм чи серіал. Налаштування: Параметри → Інтерфейс → Платформи.",
+    "url": "https://levende.github.io/lampa-plugins/tmdb-networks.js",
+    "author": "@levende",
+    "category": "theme"
+  },
+  {
+    "id": "torrent-manager",
+    "name": "Torrent Downloader",
+    "description": "Інтегрує торент-клієнти (qBittorrent, Transmission, Synology, Keenetic) у Lampa: панель завантажень, pause/resume/delete, сортування та метадані.",
+    "url": "https://lampame.github.io/main/torrentmanager.js",
+    "author": "Lampa Movie Enhancer",
+    "category": "other"
+  },
+  {
+    "id": "tracks",
+    "name": "Tracks Probe",
+    "description": "Аналізує медіапотоки через probe API (кодеки, мови, канали, бітрейт, субтитри) і показує метаінфо в списку торрент-файлів. Покращує перемикання доріжок у плеєрі.",
+    "url": "https://lampame.github.io/main/tracks.js",
+    "author": "Lampa Movie Enhancer",
+    "category": "tracks"
+  },
+  {
+    "id": "trakt-tv",
+    "name": "TraktTV",
+    "description": "Глибока інтеграція з Trakt: OAuth, синхронізація переглядів/прогресу, списки/колекції, Up Next для серіалів, UI прогресу на картках.",
+    "url": "https://lampame.github.io/main/trakttv.js",
+    "author": "Lampa Movie Enhancer",
+    "category": "other"
+  },
+  {
+    "id": "trash-filter",
+    "name": "Trash Filter",
+    "description": "Фільтрує сміттєвий контент з результатів пошуку, прибираючи низькоякісні результати.",
+    "url": "https://levende.github.io/lampa-plugins/trash-filter.js",
+    "author": "@levende",
+    "category": "other"
+  },
+  {
+    "id": "tryzub-tv",
+    "name": "TryzubTV",
+    "description": "Провайдер українського ТБ-контенту з API TryzubTV: канали, категорії та каталог-лінії з кешуванням.",
+    "url": "https://lampame.github.io/main/ttv.js",
+    "author": "Lampa Movie Enhancer",
+    "category": "iptv"
+  },
+  {
+    "id": "tstracks",
+    "name": "TsTracks",
+    "description": "Детальна інформація про аудіо/субтитри та зручний вибір доріжок від TorrServer.",
+    "url": "https://lampame.github.io/main/tstracks.js",
+    "author": "Lampa Movie Enhancer",
+    "category": "tracks"
+  },
+  {
     "id": "tv-status-color",
     "name": "TV Status Color",
     "description": "Забарвлює статус серіалу (завершений, йде, очікується) відповідним кольором для швидкої візуальної орієнтації.",
@@ -217,11 +225,11 @@
     "category": "theme"
   },
   {
-    "id": "balancer-sanitizer",
-    "name": "Balancer Sanitizer",
-    "description": "Очищує та нормалізує URL-и балансерів джерел, прибираючи зайві параметри.",
-    "url": "https://levende.github.io/lampa-plugins/balancer-sanitizer.js",
-    "author": "@levende",
+    "id": "voboost",
+    "name": "VoBoost",
+    "description": "Плагін який дозволяє підняти гучність вище 100%, щоб «розігнати» надто тихі відео. Працює лише у вбудованому (HTML5) плеєрі.",
+    "url": "https://nrsua.github.io/lampa-nrs/voboost.js",
+    "author": "@nrsua",
     "category": "other"
   }
 ]
