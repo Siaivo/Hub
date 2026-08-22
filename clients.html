@@ -6,34 +6,29 @@
 <meta name="description" content="Клієнти PluginHub — куди вставляти посилання на плагіни під кожну платформу">
 <meta name="color-scheme" content="light dark">
 <title>Клієнти — PluginHub</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="./assets/style.css">
 <style>
-.clients-nav{padding:14px 0 8px;display:flex;flex-wrap:wrap;gap:8px}
-.clients-nav .chip{text-decoration:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;background:none;border:1px solid var(--border);font-family:var(--font-body);font-size:13px;color:var(--text)}
-.clients-nav .chip svg{width:14px;height:14px;flex-shrink:0;opacity:.8}
-.clients-nav .chip.is-active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
-.clients-nav .chip:not(.is-active):hover{border-color:color-mix(in srgb, var(--accent) 30%, var(--border));color:var(--accent)}
-.clients-intro{color:var(--muted);font-size:14px;margin:14px 0 10px;line-height:1.65;max-width:680px}
-#clients-grid{display:grid;gap:18px;grid-template-columns:1fr}
-@media(min-width:860px){#clients-grid{grid-template-columns:repeat(2,1fr);gap:18px}}
+/* Токени успадковуються з assets/style.css (Lampa: #1d1f20 / #262829 / SegoeUI) */
+.clients-nav{padding:1em 0 .6em;display:flex;flex-wrap:wrap;gap:.6em}
+.clients-nav .chip{text-decoration:none;display:inline-flex;align-items:center;gap:.4em}
+.clients-nav .chip svg{width:.9em;height:.9em;flex-shrink:0;opacity:.9}
+.clients-intro{max-width:62em}
+#clients-grid{display:grid;gap:1.2em;grid-template-columns:1fr}
+@media(min-width:860px){#clients-grid{grid-template-columns:repeat(2,1fr)}}
 .client-card{scroll-margin-top:76px}
-.client-card.is-highlight{border-color:var(--accent);box-shadow:0 0 0 3px rgba(193,82,40,.18), var(--shadow-hover)}
-.client-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.client-icon{width:40px;height:40px;display:grid;place-items:center;flex-shrink:0;border-radius:10px;background:var(--accent-soft);border:1px solid var(--border);color:var(--accent);line-height:1}
-.client-icon svg{width:20px;height:20px}
-.client-head h3{font-family:var(--font-display);font-size:16px;font-weight:700;letter-spacing:-.02em;flex:1 1 auto;color:var(--text)}
-.badge{font-family:var(--font-mono);font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:1px solid var(--border);white-space:nowrap}
-.badge-recommended{background:var(--success-soft);color:var(--success);border-color:color-mix(in srgb,var(--success) 28%, var(--border))}
-.badge-sideload{background:#FEF3C7;color:#92400E;border-color:#FCD34D}
-@media(prefers-color-scheme:dark){.badge-sideload{background:#3A2A0A;color:#FCD34D;border-color:#7A5A10}}
-.client-audience{font-size:13px;color:var(--muted);margin-top:2px}
+.client-card.is-highlight{border-color:rgba(255,255,255,.18);box-shadow:0 0 0 2px rgba(255,255,255,.08)}
+.client-head{display:flex;align-items:center;gap:.8em;flex-wrap:wrap}
+.client-icon{width:2.5em;height:2.5em;display:grid;place-items:center;flex-shrink:0;border-radius:.7em;background:rgba(255,255,255,.08);border:1px solid var(--border);color:var(--text);line-height:1}
+.client-icon svg{width:1.25em;height:1.25em}
+.client-head h3{font-size:1.15em;font-weight:400;flex:1 1 auto;color:var(--text);line-height:1.25}
+.badge-recommended{background:var(--success-soft);color:var(--success);border-color:rgba(101,234,167,.22)}
+.badge-sideload{background:rgba(229,71,71,.12);color:var(--danger);border-color:rgba(229,71,71,.22)}
+.client-audience{font-size:.88em;color:var(--muted);margin-top:.15em}
 .client-audience span{color:var(--text);font-weight:600}
-.client-steps{margin:8px 0 0 18px;font-size:14px;line-height:1.65}
-.client-steps li{margin:2px 0}
-.os-req{font-size:12px;color:var(--muted);margin-top:6px}
-.client-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.client-steps{margin:.5em 0 0 1.15em;font-size:.95em;line-height:1.45}
+.client-steps li{margin:.15em 0}
+.os-req{font-size:.78em;color:var(--muted);margin-top:.4em}
+.client-links{display:flex;gap:.6em;flex-wrap:wrap;margin-top:.7em}
 
 </style>
 </head>
