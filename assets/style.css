@@ -214,11 +214,14 @@ input::placeholder{color:#6a6a6a;opacity:1}
   background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);
   white-space:nowrap;line-height:1;color:var(--muted);
 }
-.category-badge[data-cat="styles"]{color:#d8c39a;border-color:rgba(216,195,154,.22);background:rgba(216,195,154,.10)}
-.category-badge[data-cat="content"]{color:#9bce54;border-color:rgba(155,206,84,.22);background:rgba(155,206,84,.10)}
-.category-badge[data-cat="media"]{color:#5DBFF5;border-color:rgba(93,191,245,.22);background:rgba(93,191,245,.10)}
-.category-badge[data-cat="external-services"]{color:#E0B86A;border-color:rgba(224,184,106,.22);background:rgba(224,184,106,.10)}
-.category-badge[data-cat="developers"]{color:#E54747;border-color:rgba(229,71,71,.22);background:rgba(229,71,71,.10)}
+.category-badge[data-cat="video"]{color:#5DBFF5;border-color:rgba(93,191,245,.22);background:rgba(93,191,245,.10)}
+.category-badge[data-cat="iptv"]{color:#9bce54;border-color:rgba(155,206,84,.22);background:rgba(155,206,84,.10)}
+.category-badge[data-cat="theme"]{color:#d8c39a;border-color:rgba(216,195,154,.22);background:rgba(216,195,154,.10)}
+.category-badge[data-cat="control"]{color:#C39BFF;border-color:rgba(195,155,255,.22);background:rgba(195,155,255,.10)}
+.category-badge[data-cat="collections"]{color:#5EF0C8;border-color:rgba(94,240,200,.22);background:rgba(94,240,200,.10)}
+.category-badge[data-cat="tracks"]{color:#E0B86A;border-color:rgba(224,184,106,.22);background:rgba(224,184,106,.10)}
+.category-badge[data-cat="radio"]{color:#FF8FB1;border-color:rgba(255,143,177,.22);background:rgba(255,143,177,.10)}
+.category-badge[data-cat="other"]{color:#9AA0A6;border-color:rgba(154,160,166,.22);background:rgba(154,160,166,.10)}
 
 .card-desc{
   color:var(--muted);font-size:.95em;line-height:1.4;
