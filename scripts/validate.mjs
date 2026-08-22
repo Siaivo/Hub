@@ -117,7 +117,7 @@ for (let i = 0; i < data.length; i++) {
       if (!/^https?:\/\//.test(v)) errors.push(`${prefix} url: має починатися з http:// або https:// (значення: "${v}")`);
       try {
         const u = new URL(v);
-        if (u.protocol !== 'https:') errors.push(`${prefix} url: протокол має бути https:`);
+        if (u.protocol !== 'https:' && u.protocol !== 'http:') errors.push(`${prefix} url: протокол має бути http: або https:`);
       } catch {
         errors.push(`${prefix} url: невалідний URI ("${v}")`);
       }
