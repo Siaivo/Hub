@@ -3,7 +3,7 @@
     "id": "siaivo",
     "title": "Siaivo",
     "url": "http://siaivo.isroot.in/",
-    "badge": "clean",
+    "badge": "Source",
     "mirrors": [
       "https://siaivo.isroot.in",
       "https://siaivo.github.io"
@@ -19,5 +19,12 @@
     "mirrors": [],
     "description": "Незалежний портал спільноти з власним наповненням та каталогом. Не є дзеркалом Siaivo.",
     "note": "Альтернативна точка входу"
+  }, {
+    "id": "kinohub",
+    "title": "KinoHub",
+    "url": "https://siaivo.isroot.in/lparty",
+    "badge": "community",
+    "mirrors": [],
+    "description": "Спільний перегляд із Lampa"
   }
 ]
