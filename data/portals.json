@@ -20,10 +20,10 @@
     "description": "Незалежний портал спільноти з власним наповненням та каталогом. Не є дзеркалом Siaivo.",
     "note": "Альтернативна точка входу"
   }, {
-    "id": "kinohub",
-    "title": "KinoHub",
+    "id": "lparty",
+    "title": "LParty",
     "url": "https://siaivo.isroot.in/lparty",
-    "badge": "community",
+    "badge": "fun",
     "mirrors": [],
     "description": "Спільний перегляд із Lampa"
   }
