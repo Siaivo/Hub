@@ -105,6 +105,14 @@
     "category": "collections"
   },
   {
+    "id": "lparty",
+    "name": "LParty",
+    "description": "Плагін який дозволяє дивитися одне й те саме синхронно з друзями на різних пристроях.",
+    "url": "https://nrsua.github.io/lampa-nrs/lparty.js",
+    "author": "@nrsua, @levende",
+    "category": "other"
+  },
+  {
     "id": "movie-enhancer",
     "name": "Movie Enhancer",
     "description": "Модуль покращень інтерфейсу картки: редактор кнопок, режим іконок, додаткові рейтинги (MDBList/Streaming Discovery), перемикач джерел у шапці, англомовні метадані, якість та тривалість серій.",
