@@ -1,9 +1,12 @@
 export const CATEGORY_LABELS = {
-  styles: 'Стилі',
-  content: 'Контент',
-  media: 'Медіа',
-  'external-services': 'Зовнішні сервіси',
-  developers: 'Розробникам',
+  video: 'Відео',
+  iptv: 'ІПТВ',
+  theme: 'Теми',
+  control: 'Керування',
+  collections: 'Добірки',
+  tracks: 'Доріжки',
+  radio: 'Радіо',
+  other: 'Інше',
 };
 
 export const CATEGORY_KEYS = Object.keys(CATEGORY_LABELS);

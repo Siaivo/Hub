@@ -91,7 +91,7 @@ async function closeIssue(number) {
 
 function validateEntry(entry, existing) {
   const ALLOWED = new Set(['id', 'name', 'description', 'url', 'author', 'category']);
-  const CATEGORIES = new Set(['styles', 'content', 'media', 'external-services', 'developers']);
+  const CATEGORIES = new Set(['video', 'iptv', 'theme', 'control', 'collections', 'tracks', 'radio', 'other']);
   const ID_RE = /^[A-Za-z0-9._-]+$/;
   const errors = [];
 

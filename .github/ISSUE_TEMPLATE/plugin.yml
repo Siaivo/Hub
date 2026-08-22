@@ -51,11 +51,14 @@ body:
       label: Категорія
       description: Один плагін = одна категорія. Оберіть найближчу за основною функцією.
       options:
-        - styles
-        - content
-        - media
-        - external-services
-        - developers
+        - video
+        - iptv
+        - theme
+        - control
+        - collections
+        - tracks
+        - radio
+        - other
       default: 0
     validations:
       required: true

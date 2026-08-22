@@ -38,7 +38,7 @@
       },
       "category": {
         "type": "string",
-        "enum": ["styles", "content", "media", "external-services", "developers"]
+        "enum": ["video", "iptv", "theme", "control", "collections", "tracks", "radio", "other"]
       },
       "siaivo": {
         "type": "boolean",
