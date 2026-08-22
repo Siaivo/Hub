@@ -10,10 +10,12 @@ const stateError = document.getElementById('state-error');
 const toastEl = document.getElementById('toast');
 const resetBtn = document.getElementById('reset-filters');
 const retryBtn = document.getElementById('retry-load');
+const deadBtn = document.getElementById('toggle-dead');
 
 let allData = [];
 let q = '';
 let category = 'all';
+let showDead = false;
 let toastTimer = 0;
 let copyTimerMap = new WeakMap();
 
@@ -86,20 +88,25 @@ function renderSkeleton() {
 function filterData() {
   const needle = q.trim().toLowerCase();
   return allData.filter(item => {
+    if (showDead && !item.dead) return false;
+    if (!showDead && item.dead) return false;
     if (category !== 'all' && item.category !== category) return false;
     if (!needle) return true;
     return item.name.toLowerCase().includes(needle) || item.author.toLowerCase().includes(needle);
   });
 }
 
+const DEAD_ICON = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="dead-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.91" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"><path d="M18.68 5.32h1.91A1.9 1.9 0 0 1 22.5 7.23v9.54a1.9 1.9 0 0 1-1.91 1.91H3.41A1.9 1.9 0 0 1 1.5 16.77V7.23A1.9 1.9 0 0 1 3.41 5.32H6.27"/><path d="M16.77 5.8a4.3 4.3 0 1 0-6.68 3.57v1.68h4.77V9.37A4.32 4.32 0 0 0 16.77 5.8Z"/><circle cx="11.05" cy="6.27" r="0.95" fill="currentColor" stroke="none"/><circle cx="13.91" cy="6.27" r="0.95" fill="currentColor" stroke="none"/><line x1="12" y1="22.5" x2="12" y2="18.68"/><line x1="16.77" y1="22.5" x2="7.23" y2="22.5"/></svg>';
+
 function cardHtml(item) {
   const catLabel = CATEGORY_LABELS[item.category] || item.category;
   const catKey = item.category || 'all';
   const siaivoIcon = item.siaivo ? '<img src="./assets/siaivo-logo.svg" alt="" class="siaivo-icon" title="Плагін від Siaivo" width="18" height="17">' : '';
+  const deadIcon = item.dead ? DEAD_ICON : '';
   return `
-  <article class="card">
+  <article class="card${item.dead ? ' card-dead' : ''}">
     <div class="card-top">
-      <h3>${siaivoIcon}${esc(item.name)}</h3>
+      <h3>${deadIcon}${siaivoIcon}${esc(item.name)}</h3>
       <span class="category-badge" data-cat="${esc(catKey)}">${esc(catLabel)}</span>
     </div>
     <p class="card-desc" title="${esc(item.description)}">${esc(item.description)}</p>
@@ -213,6 +220,13 @@ async function load() {
 }
 
 // events
+deadBtn.addEventListener('click', () => {
+  showDead = !showDead;
+  deadBtn.classList.toggle('is-active', showDead);
+  deadBtn.setAttribute('aria-pressed', String(showDead));
+  render();
+});
+
 const onSearch = debounce(() => {
   q = searchInput.value;
   updateSearchUi();
@@ -249,9 +263,12 @@ chips.forEach(chip => {
 resetBtn.addEventListener('click', () => {
   q = '';
   category = 'all';
+  showDead = false;
   searchInput.value = '';
   updateSearchUi();
   applyChips();
+  deadBtn.classList.remove('is-active');
+  deadBtn.setAttribute('aria-pressed', 'false');
   syncUrl();
   render();
 });

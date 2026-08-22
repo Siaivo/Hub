@@ -161,6 +161,16 @@ input::placeholder{color:#6a6a6a;opacity:1}
 .clear-btn:hover{background:rgba(255,255,255,.08);color:var(--text)}
 #search:focus + .clear-btn{color:#6a6a6a}
 #search:focus + .clear-btn:hover{background:rgba(0,0,0,.08);color:#000}
+.dead-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:var(--radius-sm);
+  border:1px solid var(--border);background:transparent;color:var(--muted);
+  cursor:pointer;transition:all var(--speed);flex-shrink:0;
+}
+.dead-btn:hover{background:rgba(229,71,71,.12);color:var(--danger);border-color:rgba(229,71,71,.3)}
+.dead-btn.is-active{background:var(--danger);color:#fff;border-color:var(--danger)}
+.dead-btn.is-active:hover{background:#c93c3c;border-color:#c93c3c}
+.dead-btn:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px}
 
 .chips{display:flex;flex-wrap:wrap;gap:.6em;align-items:center}
 .chip{
@@ -238,6 +248,9 @@ input::placeholder{color:#6a6a6a;opacity:1}
 }
 .card-url:hover{color:var(--accent-2);text-decoration:none}
 .card-actions{display:flex;gap:.6em;flex-wrap:wrap;margin-top:auto;padding-top:.4em}
+.card-dead{opacity:.55;border-style:dashed}
+.card-dead:hover{opacity:.8}
+.dead-icon{vertical-align:-.15em;margin-right:.2em;color:var(--danger);flex-shrink:0}
 
 .btn{
   appearance:none;border:0;

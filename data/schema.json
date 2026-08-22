@@ -43,6 +43,15 @@
       "siaivo": {
         "type": "boolean",
         "description": "Позначка належності плагіна до Siaivo (якщо true — на сайті показується іконка)"
+      },
+      "dead": {
+        "type": "boolean",
+        "description": "Позначка мертвого плагіна (true якщо URL повертає 404). Встановлюється автоматично check-dead.yml"
+      },
+      "lastChecked": {
+        "type": "string",
+        "format": "date-time",
+        "description": "ISO timestamp останньої перевірки URL"
       }
     }
   }
