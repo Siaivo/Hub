@@ -169,6 +169,14 @@
     "category": "collections"
   },
   {
+    "id": "remote-keyboard",
+    "name": "Remote Keyboard",
+    "description": "**Remote Keyboard**\nЗручний пульт. QR-підключення, тачпад, клавіатура та системні кнопки.",
+    "url": "https://kinohub.uk/remotekeyboard.js",
+    "author": "https://github.com/Hlushok",
+    "category": "control"
+  },
+  {
     "id": "tmdb-networks",
     "name": "TMDB Networks",
     "description": "Додає на картки кнопки стримінгових сервісів і платформ, де вийшов фільм чи серіал. Налаштування: Параметри → Інтерфейс → Платформи.",
