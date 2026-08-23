@@ -247,5 +247,13 @@
     "url": "https://nrsua.github.io/lampa-nrs/voboost.js",
     "author": "@nrsua",
     "category": "other"
+  },
+  {
+    "id": "yariks-design",
+    "name": "Yarik's Design",
+    "description": "Пакет повного кастомного редизайну карток фільмів. Можливість вмикати горизонтальні картки. Налаштування бейджів інформації прямо на картці. Можливість додати кілька рейтингів на картку (Потрібні api ключі MDBlist+).  Зміна дизайну блоку серій, виправлення інформації про назву/дату/рейтинг.",
+    "url": "https://yarikrazor-star.github.io/lmp/ydes.js",
+    "author": "@YaroslavFilms",
+    "category": "theme"
   }
 ]
