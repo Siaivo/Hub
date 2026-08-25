@@ -258,7 +258,7 @@
   },
   {
     "id": "ytranslate.js",
-    "name": "Ytranslate.js",
+    "name": "Ytranslate",
     "description": "Автоматичний переклад назв, описів, слоганів Українською.",
     "url": "https://yarikrazor-star.github.io/lmp/ytranslate.js",
     "author": "@YaroslavFilms",
