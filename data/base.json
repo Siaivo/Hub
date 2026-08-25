@@ -255,5 +255,13 @@
     "url": "https://yarikrazor-star.github.io/lmp/ydes.js",
     "author": "@YaroslavFilms",
     "category": "theme"
+  },
+  {
+    "id": "ytranslate.js",
+    "name": "Ytranslate.js",
+    "description": "Автоматичний переклад назв, описів, слоганів Українською.",
+    "url": "https://yarikrazor-star.github.io/lmp/ytranslate.js",
+    "author": "@YaroslavFilms",
+    "category": "other"
   }
 ]
