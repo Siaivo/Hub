@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: 🧩 Каталог плагінів
-    url: https://siaivo.github.io/hub
+    url: https://siaivo.github.io/Hub
     about: Переглянути опубліковані плагіни з base.json
   - name: 💬 Обговорення / Питання
-    url: https://github.com/siaivo/hub/discussions
+    url: https://github.com/siaivo/Hub/discussions
     about: Поставте запитання або запропонуйте ідею перед подачею плагіна
