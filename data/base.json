@@ -209,6 +209,14 @@
     "category": "control"
   },
   {
+    "id": "rtg",
+    "name": "RTG+",
+    "description": "Рейтинги й нагороди (Оскар, Еммі) у картці та на постері фільмів і серіалів. Підтримка IMDb, TMDB, Metacritic, Rotten Tomatoes, Popcornmeter, Trakt, Letterboxd та середньої оцінки. Гнучкі налаштування: стиль логотипів, прозорість, яскравість і ч/б вигляд. Потрібні API-ключі OMDb та MDBlist.",
+    "url": "https://ko31k.github.io/LMP/plugins/rtg.js",
+    "author": "@K031k",
+    "category": "other"
+  },
+  {
     "id": "seasonsinfo",
     "name": "SeasonsInfo",
     "description": "Плагін відображає дані про серіали прямо на картках: показує останній актуальний сезон та прогрес виходу епізодів. Має окремий розділ керування в меню «Інтерфейс». Для повноцінної роботи необхідно отримати та вказати персональний API-ключ TMDb із сайту themoviedb.org.",
