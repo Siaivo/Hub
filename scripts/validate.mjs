@@ -7,7 +7,7 @@ const root = path.resolve(__dirname, '..');
 const basePath = path.join(root, 'data', 'base.json');
 const schemaPath = path.join(root, 'data', 'schema.json');
 
-const ALLOWED = new Set(['id', 'name', 'description', 'url', 'author', 'category', 'siaivo']);
+const ALLOWED = new Set(['id', 'name', 'description', 'url', 'author', 'category', 'siaivo', 'dead', 'lastChecked']);
 const CATEGORIES = new Set(['video', 'iptv', 'theme', 'control', 'collections', 'tracks', 'radio', 'other']);
 const ID_RE = /^[A-Za-z0-9._-]+$/;
 const checkUrl = process.argv.includes('--check-url');
@@ -136,6 +136,21 @@ for (let i = 0; i < data.length; i++) {
     const v = entry.category;
     if (typeof v !== 'string') errors.push(`${prefix} category: має бути рядком`);
     else if (!CATEGORIES.has(v)) errors.push(`${prefix} category: має бути одним з [${[...CATEGORIES].join(', ')}] (значення: "${v}")`);
+  }
+
+  // siaivo (опціональне, ставить мейнтейнер вручну)
+  if ('siaivo' in entry) {
+    if (typeof entry.siaivo !== 'boolean') errors.push(`${prefix} siaivo: має бути boolean`);
+  }
+
+  // dead / lastChecked (ставить check-dead.yml, дозволено schema.json)
+  if ('dead' in entry) {
+    if (typeof entry.dead !== 'boolean') errors.push(`${prefix} dead: має бути boolean`);
+  }
+  if ('lastChecked' in entry) {
+    const v = entry.lastChecked;
+    if (typeof v !== 'string') errors.push(`${prefix} lastChecked: має бути рядком`);
+    else if (Number.isNaN(Date.parse(v))) errors.push(`${prefix} lastChecked: має бути ISO date-time ("${v}")`);
   }
 }
 

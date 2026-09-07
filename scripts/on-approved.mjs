@@ -185,11 +185,18 @@ async function addToBaseAndPR(issueNumber, entry) {
         return { html_url: existingPr.html_url, number: existingPr.number };
       }
       // Закритий, але не замержений — видаляємо гілку, щоб створити новий PR
+      // Після видалення через API обов'язково оновлюємо локальні tracking-рефи,
+      // інакше наступний push --force-with-lease падає з "(stale info)"
       console.log(`🗑️ Видаляю гілку ${branch} (PR #${existingPr.number} закритий без мержу)`);
       try {
         await ghFetch(`/repos/${owner}/${repo}/git/refs/heads/${branch}`, { method: 'DELETE' });
       } catch {
         // Гілка може вже не існувати
+      }
+      try {
+        sh(`git fetch origin --prune`, { cwd: root, allowFail: true });
+      } catch {
+        // не критично — push нижче все одно з --force
       }
       break;
     }

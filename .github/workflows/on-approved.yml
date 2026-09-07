@@ -9,8 +9,10 @@ permissions:
   contents: write
   pull-requests: write
 
+# Одна черга на всі issues: масовий апрув інакше стартує паралельні рани
+# з одного base-коміта → PR конфліктують у data/base.json (405 на мержі).
 concurrency:
-  group: on-approved-${{ github.event.issue.number }}
+  group: on-approved
   cancel-in-progress: false
 
 jobs:
