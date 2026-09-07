@@ -8,6 +8,14 @@
     "category": "video"
   },
   {
+    "id": "avgrating",
+    "name": "AVGRating",
+    "description": "Відображення з 11 сайтів які працюють з рейтингами + нагороди + середня оцінка від всіх оцінок.\nПерелік: TMDB, IMDb, Rotten Tomatoes, Metacritic, Trakt TV, Lampa (CUB), RT Audience (Popcorn), MDBList Score, Letterboxd, Нагороди (Awards), Simkl.",
+    "url": "https://cevamnelampaplagin.github.io/tytnemanichogodobrogo/avgrating.js",
+    "author": "cevamnelampaplagin",
+    "category": "theme"
+  },
+  {
     "id": "balancer-sanitizer",
     "name": "Balancer Sanitizer",
     "description": "Очищує та нормалізує URL-и балансерів джерел, прибираючи зайві параметри.",
