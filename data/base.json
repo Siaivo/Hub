@@ -48,6 +48,14 @@
     "category": "other"
   },
   {
+    "id": "cardify",
+    "name": "Cardify+",
+    "description": "Модифікація плагіну для інтерфейсу повної картки (від @ipavlin98 та @Yaroslav_Films). Замінює статичний фон у картці фільму чи серіалу на динамічний. Вміє автоматично відтворювати трейлер на фоні (без звуку) або показувати плавне слайдшоу з постерів, якщо відео вимкнено.",
+    "url": "https://ko31k.github.io/LMP/plugins/cardify+.js",
+    "author": "@K031k",
+    "category": "theme"
+  },
+  {
     "id": "community-watches",
     "name": "CommunityWatches",
     "description": "Контент-лайни Community Watches: «Топ тижня» та «Сховані геми» для головної, фільмів і серіалів. Кешує результати.",
