@@ -233,14 +233,6 @@
     "category": "other"
   },
   {
-    "id": "tmdb-networks",
-    "name": "TMDB Networks",
-    "description": "Додає на картки кнопки стримінгових сервісів і платформ, де вийшов фільм чи серіал. Налаштування: Параметри → Інтерфейс → Платформи.",
-    "url": "https://levende.github.io/lampa-plugins/tmdb-networks.js",
-    "author": "@levende",
-    "category": "theme"
-  },
-  {
     "id": "torrent-manager",
     "name": "Torrent Downloader",
     "description": "Інтегрує торент-клієнти (qBittorrent, Transmission, Synology, Keenetic) у Lampa: панель завантажень, pause/resume/delete, сортування та метадані.",
