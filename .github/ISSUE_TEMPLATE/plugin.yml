@@ -22,7 +22,7 @@ body:
     id: description
     attributes:
       label: Короткий опис
-      description: 20–300 символів, без Markdown-заголовків, одне речення для картки.
+      description: 20–512 символів, без Markdown-заголовків, одне речення для картки.
       placeholder: Що робить плагін (1–2 речення)
     validations:
       required: true

@@ -25,7 +25,7 @@
       "description": {
         "type": "string",
         "minLength": 20,
-        "maxLength": 300
+        "maxLength": 512
       },
       "url": {
         "type": "string",

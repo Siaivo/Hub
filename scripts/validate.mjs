@@ -106,7 +106,7 @@ for (let i = 0; i < data.length; i++) {
   if ('description' in entry) {
     const v = entry.description;
     if (typeof v !== 'string') errors.push(`${prefix} description: має бути рядком`);
-    else if (v.length < 20 || v.length > 300) errors.push(`${prefix} description: довжина 20-300 (зараз ${v.length})`);
+    else if (v.length < 20 || v.length > 512) errors.push(`${prefix} description: довжина 20-512 (зараз ${v.length})`);
   }
 
   // url

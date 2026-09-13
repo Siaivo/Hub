@@ -105,8 +105,8 @@ function validateEntry(entry, existing) {
     if (!ID_RE.test(entry.id)) errors.push(`id: має відповідати ^[A-Za-z0-9._-]+$ ("${entry.id}")`);
   }
   if (entry.name && (entry.name.length < 2 || entry.name.length > 60)) errors.push(`name: довжина 2-60 (зараз ${entry.name.length})`);
-  if (entry.description && (entry.description.length < 20 || entry.description.length > 300))
-    errors.push(`description: довжина 20-300 (зараз ${entry.description.length})`);
+  if (entry.description && (entry.description.length < 20 || entry.description.length > 512))
+    errors.push(`description: довжина 20-512 (зараз ${entry.description.length})`);
   if (entry.url) {
     if (!entry.url.startsWith('https://')) errors.push(`url: має починатися з https://`);
     try {
