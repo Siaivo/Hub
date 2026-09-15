@@ -203,7 +203,7 @@
   {
     "id": "pipfs",
     "name": "pipfs",
-    "description": "Дає можливість дивитись відео у вікні вбудованого плеєра лампи. \"Враховано\" перекривання навігаційного бара на мобільному, підтримка субтитрів у вікні (може багати але це не точно).\n\n<img width=\"1080\" height=\"2400\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/6100d277-8997-4a09-a3b1-90a6e8dbb039\" />\n<img width=\"2400\" height=\"1080\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/e9298a9b-6a98-47c3-bab3-c2583a8102b4\" />",
+    "description": "Дає можливість дивитись відео у вікні вбудованого плеєра лампи. \"Враховано\" перекривання навігаційного бара на мобільному, підтримка субтитрів у вікні (може багати але це не точно).",
     "url": "https://cevamnelampaplagin.github.io/sharewithothers/pipfs.js",
     "author": "@nameoftelegr",
     "category": "other"
