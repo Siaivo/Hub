@@ -14,6 +14,20 @@
       "docs": "https://github.com/lampa-app/LAMPA"
     },
     "os_requirements": "Android 5.0+ / Android TV 5.0+"
+  },{
+    "id": "iOS",
+    "title": "OliPlay",
+    "icon": "iOS",
+    "audience": "Телефони та планшети",
+    "steps": [
+      "Встановити",
+      "Оплатити підписку - Місяць, Рік чи пожиттеву",
+      "Додати адресу Лампи як сервер"
+    ],
+    "links": {
+      "download": "https://apps.apple.com/app/oliplay/id6760545351"
+    },
+    "os_requirements": "iOS 15.0+ / iPadOS 15.0+"
   },
   {
     "id": "android",
