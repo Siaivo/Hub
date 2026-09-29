@@ -217,6 +217,14 @@
     "category": "other"
   },
   {
+    "id": "radio",
+    "name": "Radio",
+    "description": "Плагін «Radio» для Lampa додає в меню розділ з понад 50 радіостанціями (українські та світові).",
+    "url": "https://ne3nayskas.github.io/plugins/radio.js",
+    "author": "@ne3nayskas",
+    "category": "radio"
+  },
+  {
     "id": "random-scheduled",
     "name": "Random Scheduled",
     "description": "Випадковий вибір контенту із запланованого/відкладеного списку для перегляду.",
