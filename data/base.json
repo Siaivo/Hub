@@ -257,6 +257,14 @@
     "category": "other"
   },
   {
+    "id": "siaivo-dorama",
+    "name": "Siaivo Dorama",
+    "description": "Додає окрему категорію дорам в бокову панель",
+    "url": "https://cdn.jsdelivr.net/gh/Lamp1ch-chmuk/dorami-Siaivo@main/d.js",
+    "author": "@Lamp1ch-chmuk",
+    "category": "collections"
+  },
+  {
     "id": "torrent-manager",
     "name": "Torrent Downloader",
     "description": "Інтегрує торент-клієнти (qBittorrent, Transmission, Synology, Keenetic) у Lampa: панель завантажень, pause/resume/delete, сортування та метадані.",
