@@ -329,6 +329,14 @@
     "category": "video"
   },
   {
+    "id": "uakinoofresh",
+    "name": "Uakinoofresh",
+    "description": "Дозволяє переглядати укр фільми з популярних джерел онлайн",
+    "url": "https://uakino.ofreshofresh.workers.dev/uakino.js",
+    "author": "@ofresh",
+    "category": "video"
+  },
+  {
     "id": "voboost",
     "name": "VoBoost",
     "description": "Плагін який дозволяє підняти гучність вище 100%, щоб «розігнати» надто тихі відео. Працює лише у вбудованому (HTML5) плеєрі.",
