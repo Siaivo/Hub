@@ -24,14 +24,6 @@
     "category": "other"
   },
   {
-    "id": "bandera-2.0",
-    "name": "Bandera 2.0",
-    "description": "Плагін для перегляду онлайн джерел",
-    "url": "https://lampame.github.io/main/bo.js",
-    "author": "@lampame",
-    "category": "video"
-  },
-  {
     "id": "bookmarks-sync",
     "name": "Bookmarks Sync",
     "description": "Синхронізує закладки та історію з сервісом CUB. Замінює локальні закладки даними з CUB.",
