@@ -5,12 +5,11 @@
     "icon": "android",
     "audience": "ТБ-приставки, телефони та планшети",
     "steps": [
-      "Завантаж APK з GitHub Releases",
-      "Дозволь встановлення з невідомих джерел у налаштуваннях",
+      "Завантаж APK і запусти його",
       "Встанови та запусти Lampa"
     ],
     "links": {
-      "download": "https://github.com/lampa-app/LAMPA/releases",
+      "download": "https://github.com/lampa-app/LAMPA/releases/latest/download/app-lite-release.apk",
       "docs": "https://github.com/lampa-app/LAMPA"
     },
     "os_requirements": "Android 5.0+ / Android TV 5.0+"
