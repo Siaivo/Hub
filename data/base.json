@@ -185,6 +185,14 @@
     "category": "other"
   },
   {
+    "id": "obsidian",
+    "name": "Obsidian",
+    "description": "Мінімалістичні картки з якістю, рейтингом і жанрами на постері.",
+    "url": "https://levende.github.io/lampa-plugins/obsidian.js",
+    "author": "@levende",
+    "category": "theme"
+  },
+  {
     "id": "parsers",
     "name": "Parsers",
     "description": "Каталог парсерів з індикацією доступності та швидким вибором без ручного вводу.\nДозволяє вибрати основний, та при потребі додатковий парсер зі списку, чи додати в список власний/змінити існуючий.",
