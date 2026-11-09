@@ -104,5 +104,22 @@
       "download": "https://vidaaua.mooo.com"
     },
     "os_requirements": "Hisense TV з браузером · ViaTV / VIDAA"
+  },
+  {
+    "id": "android",
+    "title": "Just+ Player",
+    "icon": "android",
+    "audience": "Відеоплеєр для телефонів, планшетів, Android TV та Fire TV",
+    "steps": [
+      "Завантаж APK, на ТБ — через Downloader за кодом 1183424",
+      "Дозволь встановлення з невідомих джерел у налаштуваннях",
+      "Встанови Just+ Player",
+      "У налаштуваннях Lampa вибери його зовнішнім плеєром"
+    ],
+    "links": {
+      "download": "https://github.com/just-plus-player/just-plus-player/releases/latest/download/JustPlus.Player.apk",
+      "docs": "https://justplus.levende.xyz/"
+    },
+    "os_requirements": "Android 6.0+ / Android TV / Fire TV"
   }
 ]
