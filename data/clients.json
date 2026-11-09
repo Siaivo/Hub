@@ -44,21 +44,6 @@
       "docs": "https://hlushok.github.io/lampaua-app/"
     },
     "os_requirements": "Android 5.0+ / Android TV 5.0+"
-  },{
-    "id": "android",
-    "title": "Siaivo",
-    "icon": "android",
-    "audience": "ТБ-приставки, телефони та планшети",
-    "steps": [
-      "Завантаж APK з GitHub Releases",
-      "Дозволь встановлення з невідомих джерел у налаштуваннях",
-      "Встанови та запусти Lampa"
-    ],
-    "links": {
-      "download": "https://t.me/mmssixxx/76864",
-      "docs": "https://github.com/Siaivo"
-    },
-    "os_requirements": "Android 5.0+ / Android TV 5.0+"
   },
   {
     "id": "smart",
