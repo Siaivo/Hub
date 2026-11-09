@@ -121,5 +121,20 @@
       "docs": "https://justplus.levende.xyz/"
     },
     "os_requirements": "Android 6.0+ / Android TV / Fire TV"
+  },
+  {
+    "id": "android",
+    "title": "TorrServe",
+    "icon": "android",
+    "audience": "Клієнт TorrServer для ТБ-приставок, телефонів та планшетів",
+    "steps": [
+      "Завантаж APK з останнього релізу і запусти його",
+      "Встанови та запусти TorrServe"
+    ],
+    "links": {
+      "download": "https://github.com/YouROK/TorrServe/releases/latest",
+      "docs": "https://github.com/YouROK/TorrServe"
+    },
+    "os_requirements": "Android 4.1+ / Android TV"
   }
 ]
